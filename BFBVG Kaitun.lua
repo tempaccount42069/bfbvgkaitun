@@ -215,7 +215,7 @@ local function QBZOZTE_fake_script() -- Frame.lvlfarm
 			currentIndex = (currentIndex % #chestParts) + 1
 	
 			-- Add a delay between teleports
-			wait(0.85) -- Adjust the time as needed
+			wait(0.01) -- Adjust the time as needed
 		end
 	end
 	
