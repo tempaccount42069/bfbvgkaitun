@@ -110,7 +110,6 @@ KillingCheats:CreateDropdown("DropDown", {"Dragon (East) Fruit", "Dragon (West) 
     end
 end)
 
-
 -- Slider
 KillingCheats:CreateSlider("Slider", 0, 100, 15, false, function(value)
     print(value)
@@ -120,3 +119,34 @@ end)
 KillingCheats:CreateColorPicker("Picker", Color3.fromRGB(255, 255, 255), function(color)
     print(color)
 end)
+
+-- Toggle: Add Mastery
+local isMasteryActive = false
+
+KillingCheats:CreateToggle("Add Mastery", function(value)
+    isMasteryActive = value
+    if isMasteryActive then
+        print("Add Mastery activated.")
+        giveMasteryEXPToPlayer(game.Players.LocalPlayer, "SMthh", 10) -- Example usage, modify as needed
+    else
+        print("Add Mastery deactivated.")
+    end
+end)
+
+-- Function to give mastery experience
+function giveMasteryEXPToPlayer(player, masteryType, addToMastery)
+    local PlayerStats = player:WaitForChild("PlayerStats")
+    local Tools = PlayerStats:WaitForChild("Tools")
+    local UsiNgg = Tools:FindFirstChild(masteryType)
+    
+    if UsiNgg then
+        local MasteryExpPP = UsiNgg:WaitForChild("MasteryExp")
+        local Mastery = UsiNgg:WaitForChild("Mastery")
+        local PlusValueTOOO = addToMastery * ((Mastery.Value ^ 1.3) * 10)
+        
+        MasteryExpPP.Value = MasteryExpPP.Value + PlusValueTOOO
+        print("Mastery added: " .. PlusValueTOOO)
+    else
+        warn("Mastery type not found.")
+    end
+end
