@@ -81,7 +81,7 @@ UITextSizeConstraint_3.MaxTextSize = 50
 
 -- Scripts:
 
-local function NDSRNMM_fake_script() -- lvl.LocalScript 
+local function XFFMPF_fake_script() -- lvl.LocalScript 
 	local script = Instance.new('LocalScript', lvl)
 
 	local player = game.Players.LocalPlayer
@@ -94,8 +94,8 @@ local function NDSRNMM_fake_script() -- lvl.LocalScript
 	end
 	
 end
-coroutine.wrap(NDSRNMM_fake_script)()
-local function BZWRMXK_fake_script() -- Frame.killall 
+coroutine.wrap(XFFMPF_fake_script)()
+local function GFSCZP_fake_script() -- Frame.killall 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -114,8 +114,8 @@ local function BZWRMXK_fake_script() -- Frame.killall
 	end
 	
 end
-coroutine.wrap(BZWRMXK_fake_script)()
-local function ASARD_fake_script() -- money.LocalScript 
+coroutine.wrap(GFSCZP_fake_script)()
+local function SDSCIC_fake_script() -- money.LocalScript 
 	local script = Instance.new('LocalScript', money)
 
 	local player = game.Players.LocalPlayer
@@ -128,14 +128,14 @@ local function ASARD_fake_script() -- money.LocalScript
 	end
 	
 end
-coroutine.wrap(ASARD_fake_script)()
-local function QXCA_fake_script() -- Frame.antiafk 
+coroutine.wrap(SDSCIC_fake_script)()
+local function SOZL_fake_script() -- Frame.antiafk 
 	local script = Instance.new('LocalScript', Frame)
 
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/NoTwistedHere/Roblox/main/AntiAFK.lua"))()
 end
-coroutine.wrap(QXCA_fake_script)()
-local function AVYTEIJ_fake_script() -- Frame.fpsboost 
+coroutine.wrap(SOZL_fake_script)()
+local function BKYMAUB_fake_script() -- Frame.fpsboost 
 	local script = Instance.new('LocalScript', Frame)
 
 	--[[
@@ -192,27 +192,39 @@ local function AVYTEIJ_fake_script() -- Frame.fpsboost
 	}
 	loadstring(game:HttpGet("https://pastebin.com/raw/4Zcpfp32"))()
 end
-coroutine.wrap(AVYTEIJ_fake_script)()
-local function LPPAWO_fake_script() -- Frame.chestfarm 
+coroutine.wrap(BKYMAUB_fake_script)()
+local function MNBPSOJ_fake_script() -- Frame.chestfarm 
 	local script = Instance.new('LocalScript', Frame)
 
-	local localPlayer = game:GetService("Players").LocalPlayer
-	local npc = workspace:WaitForChild("Characters")
-	local Remote = game:GetService("ReplicatedStorage"):WaitForChild("ALLREMBINDS"):WaitForChild("MainRemoteEvent")
-	local fruits = localPlayer.PlayerStats.Tools
-	local chest = workspace.World.Chests
+	local Players = game:GetService("Players")
+	local Workspace = game:GetService("Workspace")
 	
-	while true do
-		for _, v in ipairs(chest:GetChildren()) do
-			firetouchinterest(localPlayer.Character.HumanoidRootPart, v, 0)
-			firetouchinterest(localPlayer.Character.HumanoidRootPart, v, 1)
+	local localPlayer = Players.LocalPlayer
+	local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
+	local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+	local chests = Workspace:WaitForChild("World"):WaitForChild("Chests")
+	
+	-- Function to simulate touching a chest
+	local function interactWithChest(chest)
+		if chest and chest:IsA("BasePart") then
+			local proximityCheck = (chest.Position - humanoidRootPart.Position).Magnitude
+			if proximityCheck <= 10 then -- Adjust the range as needed
+				-- Trigger any interaction-related RemoteEvent (if necessary)
+				print("Interacting with chest:", chest.Name)
+			end
 		end
-		wait(0.1)  -- You can adjust the wait time for how often the script should repeat
+	end
+	
+	-- Main loop to interact with chests
+	while wait(0.1) do
+		for _, chest in ipairs(chests:GetChildren()) do
+			interactWithChest(chest)
+		end
 	end
 	
 end
-coroutine.wrap(LPPAWO_fake_script)()
-local function YTKYL_fake_script() -- Frame.masteryfarm 
+coroutine.wrap(MNBPSOJ_fake_script)()
+local function PRNUSS_fake_script() -- Frame.masteryfarm 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -229,8 +241,8 @@ local function YTKYL_fake_script() -- Frame.masteryfarm
 	end
 	
 end
-coroutine.wrap(YTKYL_fake_script)()
-local function EKHCW_fake_script() -- Frame.altchestfarm 
+coroutine.wrap(PRNUSS_fake_script)()
+local function OIGF_fake_script() -- Frame.altchestfarm 
 	local script = Instance.new('LocalScript', Frame)
 
 	local Players = game:GetService("Players")
@@ -304,4 +316,4 @@ local function EKHCW_fake_script() -- Frame.altchestfarm
 	end
 	
 end
-coroutine.wrap(EKHCW_fake_script)()
+coroutine.wrap(OIGF_fake_script)()
