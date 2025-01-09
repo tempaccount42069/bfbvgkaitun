@@ -35,7 +35,7 @@ end)
 
 local Section = Window:NewSection("FRUITS")
 
-Section:CreateDropdown("select fruit", {"Dragon (West) Fruit", "Dragon (East) Fruit", "Flame Fruit", "Kitsune Fruit", "Leopard Fruit", "Dough Fruit", "Magma Fruit", "Venom Fruit", "Light Fruit", "Ice Fruit", "Hito Fruit", "Control Fruit"}, 1, function(text)
+Section:CreateDropdown("Select Fruit", {"Dragon (West) Fruit", "Dragon (East) Fruit", "Flame Fruit", "Kitsune Fruit", "Leopard Fruit", "Dough Fruit", "Magma Fruit", "Venom Fruit", "Light Fruit", "Ice Fruit", "Hito Fruit", "Control Fruit"}, 1, function(text)
     local args = {
         [1] = "EMMFOSS__!ZCNSJNXCSDWQSANBX",
         [2] = "AddToolToBackpackKKK",
