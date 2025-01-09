@@ -84,9 +84,32 @@ function startChestCollection()
 end
 
 -- Dropdown
-KillingCheats:CreateDropdown("DropDown", {"Hello", "World", "Hello World"}, 2, function(selected)
-    print(selected)
+KillingCheats:CreateDropdown("DropDown", {"Dragon (East) Fruit", "Dragon (West) Fruit", "Kitsune Fruit"}, 2, function(selected)
+    local Players = game:GetService("Players")
+    local player = Players.LocalPlayer
+    local fruitModelsFolder = game.ServerStorage:FindFirstChild("Fruit Models")
+
+    if not fruitModelsFolder then
+        warn("Fruit Models folder not found in ServerStorage")
+        return
+    end
+
+    if player and player:FindFirstChild("Backpack") then
+        -- Look for the selected fruit in the Fruit Models folder
+        local selectedFruit = fruitModelsFolder:FindFirstChild(selected)
+        if selectedFruit and selectedFruit:IsA("Tool") then
+            -- Clone the selected fruit and move it to the player's backpack
+            local clonedFruit = selectedFruit:Clone()
+            clonedFruit.Parent = player.Backpack
+            print(selected .. " has been added to your Backpack.")
+        else
+            warn("Selected fruit (" .. selected .. ") not found or is not a Tool.")
+        end
+    else
+        warn("Player or Backpack not found.")
+    end
 end)
+
 
 -- Slider
 KillingCheats:CreateSlider("Slider", 0, 100, 15, false, function(value)
