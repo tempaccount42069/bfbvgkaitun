@@ -20,7 +20,6 @@ local UITextSizeConstraint_5 = Instance.new("UITextSizeConstraint")
 
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-ScreenGui.ResetOnSpawn = false
 
 Frame.Parent = ScreenGui
 Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -121,7 +120,7 @@ UITextSizeConstraint_5.MaxTextSize = 50
 
 -- Scripts:
 
-local function HCKQS_fake_script() -- lvl.LocalScript 
+local function LSUFHV_fake_script() -- lvl.LocalScript 
 	local script = Instance.new('LocalScript', lvl)
 
 	local player = game.Players.LocalPlayer
@@ -134,8 +133,8 @@ local function HCKQS_fake_script() -- lvl.LocalScript
 	end
 	
 end
-coroutine.wrap(HCKQS_fake_script)()
-local function NFBAHLR_fake_script() -- quote.cycle 
+coroutine.wrap(LSUFHV_fake_script)()
+local function MSHV_fake_script() -- quote.cycle 
 	local script = Instance.new('LocalScript', quote)
 
 	local textLabel = script.Parent  -- Reference to the TextLabel
@@ -156,8 +155,8 @@ local function NFBAHLR_fake_script() -- quote.cycle
 	end
 	
 end
-coroutine.wrap(NFBAHLR_fake_script)()
-local function DKSHJY_fake_script() -- Frame.lvlfarm 
+coroutine.wrap(MSHV_fake_script)()
+local function GMUET_fake_script() -- Frame.lvlfarm 
 	local script = Instance.new('LocalScript', Frame)
 
 	local Players = game:GetService("Players")
@@ -193,9 +192,14 @@ local function DKSHJY_fake_script() -- Frame.lvlfarm
 	
 		-- Start cycling through chests
 		local currentIndex = 1
-		while true do
-			local chest = chestParts[currentIndex]
 	
+		while true do
+			-- Wait until the player has a valid character
+			while not player.Character or not player.Character.PrimaryPart do
+				wait()
+			end
+	
+			local chest = chestParts[currentIndex]
 			if player.Character and player.Character.PrimaryPart then
 				local primaryPart = player.Character.PrimaryPart
 	
@@ -205,84 +209,29 @@ local function DKSHJY_fake_script() -- Frame.lvlfarm
 				player.Character:SetPrimaryPartCFrame(CFrame.new(targetPosition))
 			else
 				warn("Player's character or PrimaryPart is missing")
-				return
 			end
 	
 			-- Move to the next chest, cycling back to the first if at the end
 			currentIndex = (currentIndex % #chestParts) + 1
 	
 			-- Add a delay between teleports
-			wait(0.01) -- Adjust the time as needed
+			wait(0.85) -- Adjust the time as needed
 		end
 	end
 	
+	-- Restart the teleportation cycle when the player's character is reset
+	player.CharacterAdded:Connect(function()
+		spawn(teleportToChestsInCycle) -- Start the teleportation loop in a coroutine
+	end)
+	
 	-- Start the teleportation cycle when the script runs
-	teleportToChestsInCycle()
+	if player.Character then
+		spawn(teleportToChestsInCycle)
+	end
 	
 end
-coroutine.wrap(DKSHJY_fake_script)()
-local function NAYMJ_fake_script() -- Frame.fpsboost 
-	local script = Instance.new('LocalScript', Frame)
-
-	_G.Ignore = {}
-	_G.Settings = {
-		Players = {
-			["Ignore Me"] = true,
-			["Ignore Others"] = true,
-			["Ignore Tools"] = true
-		},
-		Meshes = {
-			NoMesh = true,
-			NoTexture = true,
-			Destroy = false
-		},
-		Images = {
-			Invisible = true,
-			Destroy = false
-		},
-		Explosions = {
-			Smaller = true,
-			Invisible = true, -- Not for PVP games
-			Destroy = false -- Not for PVP games
-		},
-		Particles = {
-			Invisible = true,
-			Destroy = false
-		},
-		TextLabels = {
-			LowerQuality = false,
-			Invisible = false,
-			Destroy = false
-		},
-		MeshParts = {
-			LowerQuality = true,
-			Invisible = true,
-			NoTexture = true,
-			NoMesh = true,
-			Destroy = false
-		},
-		Other = {
-			["FPS Cap"] = 360, -- true to uncap
-			["No Camera Effects"] = true,
-			["No Clothes"] = true,
-			["Low Water Graphics"] = true,
-			["No Shadows"] = true,
-			["Low Rendering"] = true,
-			["Low Quality Parts"] = true,
-			["Low Quality Models"] = true,
-			["Reset Materials"] = true,
-		}
-	}
-	loadstring(game:HttpGet("https://pastebin.com/raw/4Zcpfp32"))()
-end
-coroutine.wrap(NAYMJ_fake_script)()
-local function SSURSX_fake_script() -- Frame.antiafk 
-	local script = Instance.new('LocalScript', Frame)
-
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/NoTwistedHere/Roblox/main/AntiAFK.lua"))()
-end
-coroutine.wrap(SSURSX_fake_script)()
-local function ZBNDQKL_fake_script() -- money.LocalScript 
+coroutine.wrap(GMUET_fake_script)()
+local function WSJIPY_fake_script() -- money.LocalScript 
 	local script = Instance.new('LocalScript', money)
 
 	local player = game.Players.LocalPlayer
@@ -295,4 +244,4 @@ local function ZBNDQKL_fake_script() -- money.LocalScript
 	end
 	
 end
-coroutine.wrap(ZBNDQKL_fake_script)()
+coroutine.wrap(WSJIPY_fake_script)()
