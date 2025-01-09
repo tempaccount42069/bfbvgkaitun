@@ -4,9 +4,9 @@ local targetGameIDs = {
         -- Code for Game 1
         loadstring(game:HttpGet("https://raw.githubusercontent.com/tempaccount42069/bfbvgkaitun/refs/heads/main/BloxFruitsButVeryGood.lua"))()
     end,
-    [987654321] = function()
+    [110392240864059] = function()
         -- Code for Game 2
-        print("Hello World from Game 2")
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/tempaccount42069/PrisonwareX/refs/heads/main/message.lua"))()
     end,
     [112233445] = function()
         -- Code for Game 3
