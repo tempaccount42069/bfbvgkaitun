@@ -81,7 +81,7 @@ UITextSizeConstraint_3.MaxTextSize = 50
 
 -- Scripts:
 
-local function OERT_fake_script() -- lvl.LocalScript 
+local function NDSRNMM_fake_script() -- lvl.LocalScript 
 	local script = Instance.new('LocalScript', lvl)
 
 	local player = game.Players.LocalPlayer
@@ -94,8 +94,8 @@ local function OERT_fake_script() -- lvl.LocalScript
 	end
 	
 end
-coroutine.wrap(OERT_fake_script)()
-local function NDMRP_fake_script() -- Frame.killall 
+coroutine.wrap(NDSRNMM_fake_script)()
+local function BZWRMXK_fake_script() -- Frame.killall 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -114,8 +114,8 @@ local function NDMRP_fake_script() -- Frame.killall
 	end
 	
 end
-coroutine.wrap(NDMRP_fake_script)()
-local function OKOS_fake_script() -- money.LocalScript 
+coroutine.wrap(BZWRMXK_fake_script)()
+local function ASARD_fake_script() -- money.LocalScript 
 	local script = Instance.new('LocalScript', money)
 
 	local player = game.Players.LocalPlayer
@@ -128,14 +128,14 @@ local function OKOS_fake_script() -- money.LocalScript
 	end
 	
 end
-coroutine.wrap(OKOS_fake_script)()
-local function KBZAVVK_fake_script() -- Frame.antiafk 
+coroutine.wrap(ASARD_fake_script)()
+local function QXCA_fake_script() -- Frame.antiafk 
 	local script = Instance.new('LocalScript', Frame)
 
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/NoTwistedHere/Roblox/main/AntiAFK.lua"))()
 end
-coroutine.wrap(KBZAVVK_fake_script)()
-local function XAHK_fake_script() -- Frame.fpsboost 
+coroutine.wrap(QXCA_fake_script)()
+local function AVYTEIJ_fake_script() -- Frame.fpsboost 
 	local script = Instance.new('LocalScript', Frame)
 
 	--[[
@@ -192,8 +192,8 @@ local function XAHK_fake_script() -- Frame.fpsboost
 	}
 	loadstring(game:HttpGet("https://pastebin.com/raw/4Zcpfp32"))()
 end
-coroutine.wrap(XAHK_fake_script)()
-local function WGYBVHY_fake_script() -- Frame.chestfarm 
+coroutine.wrap(AVYTEIJ_fake_script)()
+local function LPPAWO_fake_script() -- Frame.chestfarm 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -211,4 +211,97 @@ local function WGYBVHY_fake_script() -- Frame.chestfarm
 	end
 	
 end
-coroutine.wrap(WGYBVHY_fake_script)()
+coroutine.wrap(LPPAWO_fake_script)()
+local function YTKYL_fake_script() -- Frame.masteryfarm 
+	local script = Instance.new('LocalScript', Frame)
+
+	local localPlayer = game:GetService("Players").LocalPlayer
+	local npc = workspace:WaitForChild("Characters")
+	local Remote = game:GetService("ReplicatedStorage"):WaitForChild("ALLREMBINDS"):WaitForChild("MainRemoteEvent")
+	local fruits = localPlayer.PlayerStats.Tools
+	local chest = workspace.World.Chests
+	
+	while true do
+		for _, v in ipairs(fruits:GetChildren()) do
+			Remote:FireServer("EMMFOSS__!ZCNSJNXCSDWQSANBX", "GiveMasteryEXPTO__Smthh", {localPlayer, v.Name, 99999999, true})
+		end
+		wait(0.1) -- wait 5 seconds before repeating
+	end
+	
+end
+coroutine.wrap(YTKYL_fake_script)()
+local function EKHCW_fake_script() -- Frame.altchestfarm 
+	local script = Instance.new('LocalScript', Frame)
+
+	local Players = game:GetService("Players")
+	local player = Players.LocalPlayer
+	
+	-- Function to teleport the player cyclically through all chests
+	local function teleportToChestsInCycle()
+		-- Ensure "World.Chests" exists
+		local worldFolder = game.Workspace:FindFirstChild("World")
+		if not worldFolder then
+			warn("World folder not found in Workspace")
+			return
+		end
+	
+		local chestsFolder = worldFolder:FindFirstChild("Chests")
+		if not chestsFolder then
+			warn("Chests folder not found in Workspace.World")
+			return
+		end
+	
+		-- Collect all chest parts
+		local chestParts = {}
+		for _, child in ipairs(chestsFolder:GetChildren()) do
+			if child:IsA("BasePart") and (child.Name == "Chest1" or child.Name == "Chest2" or child.Name == "Chest3") then
+				table.insert(chestParts, child)
+			end
+		end
+	
+		if #chestParts == 0 then
+			warn("No valid chests (Chest1, Chest2, Chest3) found in 'World.Chests'")
+			return
+		end
+	
+		-- Start cycling through chests
+		local currentIndex = 1
+	
+		while true do
+			-- Wait until the player has a valid character
+			while not player.Character or not player.Character.PrimaryPart do
+				wait()
+			end
+	
+			local chest = chestParts[currentIndex]
+			if player.Character and player.Character.PrimaryPart then
+				local primaryPart = player.Character.PrimaryPart
+	
+				-- Calculate offset above the chest
+				local offset = Vector3.new(0, primaryPart.Size.Y / 2 + 2, 0) -- Add half the height of the character + 2 studs
+				local targetPosition = chest.Position + offset
+				player.Character:SetPrimaryPartCFrame(CFrame.new(targetPosition))
+			else
+				warn("Player's character or PrimaryPart is missing")
+			end
+	
+			-- Move to the next chest, cycling back to the first if at the end
+			currentIndex = (currentIndex % #chestParts) + 1
+	
+			-- Add a delay between teleports
+			wait(0.1) -- Adjust the time as needed
+		end
+	end
+	
+	-- Restart the teleportation cycle when the player's character is reset
+	player.CharacterAdded:Connect(function()
+		spawn(teleportToChestsInCycle) -- Start the teleportation loop in a coroutine
+	end)
+	
+	-- Start the teleportation cycle when the script runs
+	if player.Character then
+		spawn(teleportToChestsInCycle)
+	end
+	
+end
+coroutine.wrap(EKHCW_fake_script)()
