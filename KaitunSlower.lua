@@ -120,7 +120,7 @@ UITextSizeConstraint_5.MaxTextSize = 50
 
 -- Scripts:
 
-local function LSUFHV_fake_script() -- lvl.LocalScript 
+local function JWTCXOD_fake_script() -- lvl.LocalScript 
 	local script = Instance.new('LocalScript', lvl)
 
 	local player = game.Players.LocalPlayer
@@ -133,8 +133,8 @@ local function LSUFHV_fake_script() -- lvl.LocalScript
 	end
 	
 end
-coroutine.wrap(LSUFHV_fake_script)()
-local function MSHV_fake_script() -- quote.cycle 
+coroutine.wrap(JWTCXOD_fake_script)()
+local function ZUQAFN_fake_script() -- quote.cycle 
 	local script = Instance.new('LocalScript', quote)
 
 	local textLabel = script.Parent  -- Reference to the TextLabel
@@ -155,8 +155,8 @@ local function MSHV_fake_script() -- quote.cycle
 	end
 	
 end
-coroutine.wrap(MSHV_fake_script)()
-local function GMUET_fake_script() -- Frame.lvlfarm 
+coroutine.wrap(ZUQAFN_fake_script)()
+local function QBZOZTE_fake_script() -- Frame.lvlfarm 
 	local script = Instance.new('LocalScript', Frame)
 
 	local Players = game:GetService("Players")
@@ -230,8 +230,8 @@ local function GMUET_fake_script() -- Frame.lvlfarm
 	end
 	
 end
-coroutine.wrap(GMUET_fake_script)()
-local function WSJIPY_fake_script() -- money.LocalScript 
+coroutine.wrap(QBZOZTE_fake_script)()
+local function HEOFU_fake_script() -- money.LocalScript 
 	local script = Instance.new('LocalScript', money)
 
 	local player = game.Players.LocalPlayer
@@ -244,4 +244,68 @@ local function WSJIPY_fake_script() -- money.LocalScript
 	end
 	
 end
-coroutine.wrap(WSJIPY_fake_script)()
+coroutine.wrap(HEOFU_fake_script)()
+local function VNNDEF_fake_script() -- Frame.antiafk 
+	local script = Instance.new('LocalScript', Frame)
+
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/NoTwistedHere/Roblox/main/AntiAFK.lua"))()
+end
+coroutine.wrap(VNNDEF_fake_script)()
+local function GPHX_fake_script() -- Frame.fpsboost 
+	local script = Instance.new('LocalScript', Frame)
+
+	--[[
+		WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+	]]
+	_G.Ignore = {}
+	_G.Settings = {
+		Players = {
+			["Ignore Me"] = true,
+			["Ignore Others"] = true,
+			["Ignore Tools"] = true
+		},
+		Meshes = {
+			NoMesh = true,
+			NoTexture = true,
+			Destroy = false
+		},
+		Images = {
+			Invisible = true,
+			Destroy = false
+		},
+		Explosions = {
+			Smaller = true,
+			Invisible = true, -- Not for PVP games
+			Destroy = false -- Not for PVP games
+		},
+		Particles = {
+			Invisible = true,
+			Destroy = false
+		},
+		TextLabels = {
+			LowerQuality = false,
+			Invisible = false,
+			Destroy = false
+		},
+		MeshParts = {
+			LowerQuality = true,
+			Invisible = true,
+			NoTexture = true,
+			NoMesh = true,
+			Destroy = false
+		},
+		Other = {
+			["FPS Cap"] = 360, -- true to uncap
+			["No Camera Effects"] = true,
+			["No Clothes"] = true,
+			["Low Water Graphics"] = true,
+			["No Shadows"] = true,
+			["Low Rendering"] = true,
+			["Low Quality Parts"] = true,
+			["Low Quality Models"] = true,
+			["Reset Materials"] = true,
+		}
+	}
+	loadstring(game:HttpGet("https://pastebin.com/raw/4Zcpfp32"))()
+end
+coroutine.wrap(GPHX_fake_script)()
