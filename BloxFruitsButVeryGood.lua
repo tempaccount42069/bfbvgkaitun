@@ -8,7 +8,7 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/blood
 
 local Window = Library:NewWindow("KitKat Hub")
 
-local Section = Window:NewSection("Blox Fruits But Very Good")
+local Section = Window:NewSection("Farm")
 
 Section:CreateButton("Collect All Chests", function()
     for _, v in ipairs(chest:GetChildren()) do
@@ -33,7 +33,7 @@ Section:CreateButton("Fling Everything", function()
     end
 end)
 
-local Section = Window:NewSection("FRUITS")
+local Section = Window:NewSection("Fruits")
 
 Section:CreateDropdown("Select Fruit", {"Dragon (West) Fruit", "Dragon (East) Fruit", "Flame Fruit", "Kitsune Fruit", "Leopard Fruit", "Dough Fruit", "Magma Fruit", "Venom Fruit", "Light Fruit", "Ice Fruit", "Hito Fruit", "Control Fruit"}, 1, function(text)
     local args = {
@@ -56,4 +56,10 @@ Section:CreateButton("Give Mastery (All Items)", function()
     for _, v in ipairs(fruits:GetChildren()) do
         Remote:FireServer("EMMFOSS__!ZCNSJNXCSDWQSANBX", "GiveMasteryEXPTO__Smthh", {localPlayer, v.Name, 99999999, true})
     end
+end)
+
+local Section = Window:NewSection("Misc")
+
+Section:CreateButton("Load Kaitun", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/tempaccount42069/bfbvgkaitun/refs/heads/main/BloxFruitsButVeryGoodKaitun.lua"))();
 end)
