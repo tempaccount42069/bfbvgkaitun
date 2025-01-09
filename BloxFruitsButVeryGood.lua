@@ -6,18 +6,18 @@ local chest = workspace.World.Chests
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard"))()
 
-local Window = Library:NewWindow("Arbix Hub")
+local Window = Library:NewWindow("KitKat Hub")
 
-local Section = Window:NewSection("OP THINGS")
+local Section = Window:NewSection("Blox Fruits But Very Good")
 
-Section:CreateButton("Collect chest", function()
+Section:CreateButton("Collect All Chests", function()
     for _, v in ipairs(chest:GetChildren()) do
         firetouchinterest(localPlayer.Character.HumanoidRootPart, v, 0)
         firetouchinterest(localPlayer.Character.HumanoidRootPart, v, 1)
     end
 end)
 
-Section:CreateButton("kill all players/npc", function()
+Section:CreateButton("Kill All Players/NPCs", function()
     for _, character in pairs(npc:GetChildren()) do
                 if character:IsA("Model") and character:FindFirstChild("Humanoid") and character.Name ~= localPlayer.Name then
                     Remote:FireServer("EMMFOSS__!ZCNSJNXCSDWQSANBX","Main_DamgeR___",{character, {Using = "Combat", Damge = 9999, FromPlayer = localPlayer}})
@@ -25,7 +25,7 @@ Section:CreateButton("kill all players/npc", function()
             end
         end)
 
-Section:CreateButton("Fling everything", function()
+Section:CreateButton("Fling Everything", function()
     for _, character in pairs(npc:GetChildren()) do
         if character:IsA("Model") and character:FindFirstChild("Humanoid") and character.Name ~= localPlayer.Name then
             Remote:FireServer("EMMFOSS__!ZCNSJNXCSDWQSANBX", "ASeemblyLinearVEllChangerr", {character:FindFirstChild("HumanoidRootPart"), Vector3.new(0, 1000, 0)})
@@ -50,9 +50,9 @@ Section:CreateDropdown("select fruit", {"Dragon (West) Fruit", "Dragon (East) Fr
     Remote:FireServer(unpack(args))
 end)
 
-local Section = Window:NewSection("INF MASTERY")
+local Section = Window:NewSection("Mastery")
 
-Section:CreateButton("Get Mastery all fruits", function()
+Section:CreateButton("Give Mastery (All Items)", function()
     for _, v in ipairs(fruits:GetChildren()) do
         Remote:FireServer("EMMFOSS__!ZCNSJNXCSDWQSANBX", "GiveMasteryEXPTO__Smthh", {localPlayer, v.Name, 99999999, true})
     end
