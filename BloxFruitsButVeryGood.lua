@@ -61,5 +61,5 @@ end)
 local Section = Window:NewSection("Misc")
 
 Section:CreateButton("Load Kaitun", function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/tempaccount42069/bfbvgkaitun/refs/heads/main/BloxFruitsButVeryGoodKaitun.lua"))();
+loadstring(game:HttpGet("https://raw.githubusercontent.com/tempaccount42069/bfbvgkaitun/refs/heads/main/BloxFruitsButVeryGoodKaitun.lua"))();
 end)
