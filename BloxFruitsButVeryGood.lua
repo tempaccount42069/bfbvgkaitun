@@ -1,29 +1,99 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard"))()
 
-local Library = loadstring(Game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard"))()
+local PhantomForcesWindow = Library:NewWindow("Blox Fruits But Very Good")
 
-local PhantomForcesWindow = Library:NewWindow("Combat")
+local KillingCheats = PhantomForcesWindow:NewSection("Main")
 
-local KillingCheats = PhantomForcesWindow:NewSection("Kill Options")
-
+-- Button
 KillingCheats:CreateButton("Button", function()
-print("HI")
+    print("HI")
 end)
 
+-- Textbox
 KillingCheats:CreateTextbox("TextBox", function(text)
-        print(text)
+    print(text)
 end)
 
-KillingCheats:CreateToggle("Auto Ez", function(value)
-print(value)
+-- Toggle: Auto Farm Chest
+local isCollectChestActive = false -- Initial toggle state
+
+KillingCheats:CreateToggle("Auto Farm Chest", function(value)
+    isCollectChestActive = value -- Update toggle state
+    if isCollectChestActive then
+        print("Auto Farm Chest activated.")
+        startChestCollection()
+    else
+        print("Auto Farm Chest deactivated.")
+    end
 end)
 
-KillingCheats:CreateDropdown("DropDown", {"Hello", "World", "Hello World"}, 2, function(text)
-print(text)
+-- Function to start chest collection
+function startChestCollection()
+    local Players = game:GetService("Players")
+    local player = Players.LocalPlayer
+
+    -- Validate World and Chests folders
+    local worldFolder = game.Workspace:FindFirstChild("World")
+    if not worldFolder then
+        warn("World folder not found in Workspace")
+        return
+    end
+
+    local chestsFolder = worldFolder:FindFirstChild("Chests")
+    if not chestsFolder then
+        warn("Chests folder not found in Workspace.World")
+        return
+    end
+
+    -- Collect all chest parts
+    local chestParts = {}
+    for _, child in ipairs(chestsFolder:GetChildren()) do
+        if child:IsA("BasePart") and (child.Name == "Chest1" or child.Name == "Chest2" or child.Name == "Chest3") then
+            table.insert(chestParts, child)
+        end
+    end
+
+    if #chestParts == 0 then
+        warn("No valid chests (Chest1, Chest2, Chest3) found in 'World.Chests'")
+        return
+    end
+
+    -- Start cycling through chests
+    local currentIndex = 1
+    while isCollectChestActive do
+        local chest = chestParts[currentIndex]
+
+        if player.Character and player.Character.PrimaryPart then
+            local primaryPart = player.Character.PrimaryPart
+
+            -- Calculate offset above the chest
+            local offset = Vector3.new(0, primaryPart.Size.Y / 2 + 2, 0)
+            local targetPosition = chest.Position + offset
+            player.Character:SetPrimaryPartCFrame(CFrame.new(targetPosition))
+        else
+            warn("Player's character or PrimaryPart is missing")
+            return
+        end
+
+        -- Move to the next chest, cycling back to the first if at the end
+        currentIndex = (currentIndex % #chestParts) + 1
+
+        -- Add a delay between teleports
+        wait(0.01) -- Adjust the time as needed
+    end
+end
+
+-- Dropdown
+KillingCheats:CreateDropdown("DropDown", {"Hello", "World", "Hello World"}, 2, function(selected)
+    print(selected)
 end)
 
+-- Slider
 KillingCheats:CreateSlider("Slider", 0, 100, 15, false, function(value)
-print(value)
- end)
-KillingCheats:CreateColorPicker("Picker", Color3.new(255, 255, 255), function(value)
-print(value)
+    print(value)
+end)
+
+-- Color Picker
+KillingCheats:CreateColorPicker("Picker", Color3.fromRGB(255, 255, 255), function(color)
+    print(color)
 end)
