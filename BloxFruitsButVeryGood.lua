@@ -83,6 +83,35 @@ function startChestCollection()
     end
 end
 
+-- Function to give all tools from Fruit Models
+function givePlayerAllFruitTools()
+    local Players = game:GetService("Players")
+    local player = Players.LocalPlayer
+    local fruitModelsFolder = game.ServerStorage:FindFirstChild("Fruit Models")
+
+    if not fruitModelsFolder then
+        warn("Fruit Models folder not found in ServerStorage")
+        return
+    end
+
+    if player and player:FindFirstChild("Backpack") then
+        for _, tool in ipairs(fruitModelsFolder:GetChildren()) do
+            if tool:IsA("Tool") then
+                local clonedTool = tool:Clone()
+                clonedTool.Parent = player.Backpack
+            end
+        end
+        print("All tools from Fruit Models given to player.")
+    else
+        warn("Player or Backpack not found.")
+    end
+end
+
+-- Button to give all tools from Fruit Models
+KillingCheats:CreateButton("Give All Fruit Tools", function()
+    givePlayerAllFruitTools()
+end)
+
 -- Dropdown
 KillingCheats:CreateDropdown("DropDown", {"Hello", "World", "Hello World"}, 2, function(selected)
     print(selected)
