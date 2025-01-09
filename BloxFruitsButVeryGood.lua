@@ -69,7 +69,7 @@ function startChestCollection()
             -- Calculate offset above the chest
             local offset = Vector3.new(0, primaryPart.Size.Y / 2 + 2, 0)
             local targetPosition = chest.Position + offset
-            player.Character:SetPrimaryPartCFrame(CFrame.new(targetPosition))
+            player.Character:SetPrimaryPartCFrame(CFrame.new(targetPosition)) -- Set primary part's CFrame
         else
             warn("Player's character or PrimaryPart is missing")
             return
@@ -78,8 +78,8 @@ function startChestCollection()
         -- Move to the next chest, cycling back to the first if at the end
         currentIndex = (currentIndex % #chestParts) + 1
 
-        -- Add a delay between teleports
-        wait(0.01) -- Adjust the time as needed
+        -- Add a delay between teleports (adjusting to 0.1s for performance)
+        wait(0.1)
     end
 end
 
@@ -109,6 +109,7 @@ KillingCheats:CreateDropdown("DropDown", {"Dragon (East) Fruit", "Dragon (West) 
         warn("Player or Backpack not found.")
     end
 end)
+
 
 -- Slider
 KillingCheats:CreateSlider("Slider", 0, 100, 15, false, function(value)
