@@ -13,8 +13,16 @@ KillingCheats:CreateTextbox("TextBox", function(text)
         print(text)
 end)
 
-KillingCheats:CreateToggle("Auto Ez", function(value)
-print(value)
+-- Toggle: Auto Farm Chest
+local isCollectChestActive = false -- Initial toggle state
+KillingCheats:CreateToggle("Auto Farm Chest", function(value)
+    isCollectChestActive = value -- Update toggle state
+    if isCollectChestActive then
+        print("Auto Farm Chest activated.")
+        startChestCollection()
+    else
+        print("Auto Farm Chest deactivated.")
+    end
 end)
 
 KillingCheats:CreateDropdown("DropDown", {"Hello", "World", "Hello World"}, 2, function(text)
