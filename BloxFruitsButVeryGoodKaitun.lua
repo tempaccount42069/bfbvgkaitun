@@ -18,7 +18,7 @@ local UITextSizeConstraint_5 = Instance.new("UITextSizeConstraint")
 
 --Properties:
 
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.Parent = game.Workspace
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Frame.Parent = ScreenGui
@@ -120,7 +120,7 @@ UITextSizeConstraint_5.MaxTextSize = 50
 
 -- Scripts:
 
-local function JWTCXOD_fake_script() -- lvl.LocalScript 
+local function ZVODA_fake_script() -- lvl.LocalScript 
 	local script = Instance.new('LocalScript', lvl)
 
 	local player = game.Players.LocalPlayer
@@ -133,8 +133,8 @@ local function JWTCXOD_fake_script() -- lvl.LocalScript
 	end
 	
 end
-coroutine.wrap(JWTCXOD_fake_script)()
-local function ZUQAFN_fake_script() -- quote.cycle 
+coroutine.wrap(ZVODA_fake_script)()
+local function JULNROW_fake_script() -- quote.cycle 
 	local script = Instance.new('LocalScript', quote)
 
 	local textLabel = script.Parent  -- Reference to the TextLabel
@@ -155,8 +155,8 @@ local function ZUQAFN_fake_script() -- quote.cycle
 	end
 	
 end
-coroutine.wrap(ZUQAFN_fake_script)()
-local function QBZOZTE_fake_script() -- Frame.lvlfarm 
+coroutine.wrap(JULNROW_fake_script)()
+local function GLRCFL_fake_script() -- Frame.lvlfarm 
 	local script = Instance.new('LocalScript', Frame)
 
 	local Players = game:GetService("Players")
@@ -230,8 +230,8 @@ local function QBZOZTE_fake_script() -- Frame.lvlfarm
 	end
 	
 end
-coroutine.wrap(QBZOZTE_fake_script)()
-local function HEOFU_fake_script() -- money.LocalScript 
+coroutine.wrap(GLRCFL_fake_script)()
+local function IYUHZJP_fake_script() -- money.LocalScript 
 	local script = Instance.new('LocalScript', money)
 
 	local player = game.Players.LocalPlayer
@@ -244,14 +244,14 @@ local function HEOFU_fake_script() -- money.LocalScript
 	end
 	
 end
-coroutine.wrap(HEOFU_fake_script)()
-local function VNNDEF_fake_script() -- Frame.antiafk 
+coroutine.wrap(IYUHZJP_fake_script)()
+local function PHNYQ_fake_script() -- Frame.antiafk 
 	local script = Instance.new('LocalScript', Frame)
 
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/NoTwistedHere/Roblox/main/AntiAFK.lua"))()
 end
-coroutine.wrap(VNNDEF_fake_script)()
-local function GPHX_fake_script() -- Frame.fpsboost 
+coroutine.wrap(PHNYQ_fake_script)()
+local function LFSK_fake_script() -- Frame.fpsboost 
 	local script = Instance.new('LocalScript', Frame)
 
 	--[[
@@ -308,4 +308,4 @@ local function GPHX_fake_script() -- Frame.fpsboost
 	}
 	loadstring(game:HttpGet("https://pastebin.com/raw/4Zcpfp32"))()
 end
-coroutine.wrap(GPHX_fake_script)()
+coroutine.wrap(LFSK_fake_script)()
