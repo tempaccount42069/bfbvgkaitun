@@ -6,9 +6,9 @@ local chest = workspace.World.Chests
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard"))()
 
-local Window = Library:NewWindow("KitKat Hub")
+local Window = Library:NewWindow("Arbix Hub")
 
-local Section = Window:NewSection("Blox Fruits But Very Good")
+local Section = Window:NewSection("OP THINGS")
 
 Section:CreateButton("Collect chest", function()
     for _, v in ipairs(chest:GetChildren()) do
