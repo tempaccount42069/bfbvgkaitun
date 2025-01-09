@@ -110,7 +110,6 @@ KillingCheats:CreateDropdown("DropDown", {"Dragon (East) Fruit", "Dragon (West) 
     end
 end)
 
-
 -- Slider
 KillingCheats:CreateSlider("Slider", 0, 100, 15, false, function(value)
     print(value)
