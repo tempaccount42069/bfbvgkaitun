@@ -5,9 +5,13 @@ local PhantomForcesWindow = Library:NewWindow("Blox Fruits But Very Good")
 local KillingCheats = PhantomForcesWindow:NewSection("Main")
 
 -- Button
-KillingCheats:CreateButton("Button", function()
-    print("HI")
+KillingCheats:CreateButton("Set Aura to Max", function()
+    local player = game.Players.LocalPlayer
+    if player and player:FindFirstChild("PlayerStats") and player.PlayerStats:FindFirstChild("Aura") then
+        player.PlayerStats.Aura.AuraLevel = 5
+    end
 end)
+
 
 -- Textbox
 KillingCheats:CreateTextbox("TextBox", function(text)
