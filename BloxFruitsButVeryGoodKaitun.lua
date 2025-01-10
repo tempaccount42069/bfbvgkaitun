@@ -101,7 +101,7 @@ UITextSizeConstraint_4.MaxTextSize = 50
 
 -- Scripts:
 
-local function HQSZ_fake_script() -- lvl.upd 
+local function ILGXK_fake_script() -- lvl.upd 
 	local script = Instance.new('LocalScript', lvl)
 
 	local player = game.Players.LocalPlayer
@@ -121,8 +121,8 @@ local function HQSZ_fake_script() -- lvl.upd
 	updateLevelText()
 	
 end
-coroutine.wrap(HQSZ_fake_script)()
-local function PLUG_fake_script() -- Frame.ChestFire 
+coroutine.wrap(ILGXK_fake_script)()
+local function SELFLEM_fake_script() -- Frame.ChestFire 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -140,8 +140,8 @@ local function PLUG_fake_script() -- Frame.ChestFire
 	end
 	
 end
-coroutine.wrap(PLUG_fake_script)()
-local function RDFGE_fake_script() -- money.upd 
+coroutine.wrap(SELFLEM_fake_script)()
+local function DGZAA_fake_script() -- money.upd 
 	local script = Instance.new('LocalScript', money)
 
 	local player = game.Players.LocalPlayer
@@ -161,14 +161,14 @@ local function RDFGE_fake_script() -- money.upd
 	updateBeliText()
 	
 end
-coroutine.wrap(RDFGE_fake_script)()
-local function DCPP_fake_script() -- Frame.antiafk 
+coroutine.wrap(DGZAA_fake_script)()
+local function QPQIU_fake_script() -- Frame.antiafk 
 	local script = Instance.new('LocalScript', Frame)
 
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/NoTwistedHere/Roblox/main/AntiAFK.lua"))()
 end
-coroutine.wrap(DCPP_fake_script)()
-local function MCCU_fake_script() -- Frame.fpsboost 
+coroutine.wrap(QPQIU_fake_script)()
+local function VUNR_fake_script() -- Frame.fpsboost 
 	local script = Instance.new('LocalScript', Frame)
 
 	_G.Ignore = {}
@@ -222,8 +222,8 @@ local function MCCU_fake_script() -- Frame.fpsboost
 	}
 	loadstring(game:HttpGet("https://pastebin.com/raw/4Zcpfp32"))()
 end
-coroutine.wrap(MCCU_fake_script)()
-local function PYBKZZX_fake_script() -- Frame.givemastery 
+coroutine.wrap(VUNR_fake_script)()
+local function WNSVJ_fake_script() -- Frame.givemastery 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -240,8 +240,8 @@ local function PYBKZZX_fake_script() -- Frame.givemastery
 	end
 	
 end
-coroutine.wrap(PYBKZZX_fake_script)()
-local function BQYHBT_fake_script() -- Frame.FastAttack 
+coroutine.wrap(WNSVJ_fake_script)()
+local function SCSL_fake_script() -- Frame.FastAttack 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -259,8 +259,8 @@ local function BQYHBT_fake_script() -- Frame.FastAttack
 		wait(0.5)  -- Adjust the wait time as needed (in seconds)
 	end
 end
-coroutine.wrap(BQYHBT_fake_script)()
-local function OMPTY_fake_script() -- Frame.AutoBuso 
+coroutine.wrap(SCSL_fake_script)()
+local function ORMMCPN_fake_script() -- Frame.AutoBuso 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -295,8 +295,8 @@ local function OMPTY_fake_script() -- Frame.AutoBuso
 		AuraWorking.Value = true
 	end
 end
-coroutine.wrap(OMPTY_fake_script)()
-local function CLYB_fake_script() -- Frame.NPCTeleport 
+coroutine.wrap(ORMMCPN_fake_script)()
+local function OAEV_fake_script() -- Frame.NPCTeleport 
 	local script = Instance.new('LocalScript', Frame)
 
 	local Players = game:GetService("Players")
@@ -398,8 +398,8 @@ local function CLYB_fake_script() -- Frame.NPCTeleport
 	end
 	
 end
-coroutine.wrap(CLYB_fake_script)()
-local function LHYU_fake_script() -- Frame.autoequip 
+coroutine.wrap(OAEV_fake_script)()
+local function MOOE_fake_script() -- Frame.autoequip 
 	local script = Instance.new('LocalScript', Frame)
 
 	local Players = game:GetService("Players")
@@ -408,6 +408,16 @@ local function LHYU_fake_script() -- Frame.autoequip
 	
 	-- Function to auto-equip the first item in the player's inventory
 	local function autoEquipFirstItem()
+		-- Wait for the player's character to be fully loaded
+		player.CharacterAdded:Wait()
+	
+		-- Ensure the player's character is loaded
+		local character = player.Character
+		while not character or not character:FindFirstChild("Humanoid") do
+			wait(0.1)
+			character = player.Character
+		end
+	
 		while true do
 			-- Wait until the player has items in their backpack
 			if #backpack:GetChildren() > 0 then
@@ -417,10 +427,11 @@ local function LHYU_fake_script() -- Frame.autoequip
 				local firstItem = items[1]  -- Get the first item after sorting
 	
 				-- Check if the first item is a valid tool (assuming tools are used as items)
-				if firstItem:IsA("Tool") and not player.Character:FindFirstChild(firstItem.Name) then
+				if firstItem:IsA("Tool") and not character:FindFirstChild(firstItem.Name) then
 					-- Equip the tool to the player's character
-					if player.Character and player.Character:FindFirstChild("Humanoid") then
-						player.Character.Humanoid:EquipTool(firstItem)
+					local humanoid = character:FindFirstChild("Humanoid")
+					if humanoid then
+						humanoid:EquipTool(firstItem)
 					end
 				end
 			end
@@ -433,4 +444,4 @@ local function LHYU_fake_script() -- Frame.autoequip
 	autoEquipFirstItem()
 	
 end
-coroutine.wrap(LHYU_fake_script)()
+coroutine.wrap(MOOE_fake_script)()
