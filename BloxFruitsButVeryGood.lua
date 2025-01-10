@@ -37,7 +37,7 @@ end
 ss:Dropdown("Select Tool",tool_table,function(SelectedOption)
 SelectedWeapon = SelectedOption
 end)
-    
+
 ss:Toggle("Auto Chest Farm", function(t)
     local Players = game:GetService("Players")
     local player = Players.LocalPlayer
@@ -102,7 +102,9 @@ ss:Toggle("Auto Chest Farm", function(t)
     -- Toggle handling: start or stop the teleportation loop
     if t then
         -- Start the teleportation loop in a coroutine
-        coroutine.wrap(teleportToChestsInCycle)()
+        spawn(function()
+            teleportToChestsInCycle()
+        end)
     else
         AutoFarmActive = false -- Stop the teleportation loop when toggled off
     end
@@ -111,11 +113,14 @@ ss:Toggle("Auto Chest Farm", function(t)
     player.CharacterAdded:Connect(function()
         if t then
             -- Only start teleporting if the toggle is still active
-            coroutine.wrap(teleportToChestsInCycle)()
+            spawn(function()
+                teleportToChestsInCycle()
+            end)
         end
     end)
 
 end)
+
 
 ss:Dropdown("Mobs To Farm",Npc_Table,function(t)
 mobs = t     
