@@ -67,3 +67,7 @@ end)
 Section:CreateButton("FPS Boost", function()
 loadstring(game:HttpGet("https://pastebin.com/raw/4Zcpfp32"))();
 end)
+
+Section:CreateButton("Legacy Version", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/tempaccount42069/bfbvgkaitun/refs/heads/main/BloxFruitsButVeryGoodOLD.lua"))();
+end)
