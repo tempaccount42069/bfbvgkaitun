@@ -101,7 +101,7 @@ UITextSizeConstraint_4.MaxTextSize = 50
 
 -- Scripts:
 
-local function OSKJZJ_fake_script() -- lvl.upd 
+local function JAODWK_fake_script() -- lvl.upd 
 	local script = Instance.new('LocalScript', lvl)
 
 	local player = game.Players.LocalPlayer
@@ -121,8 +121,8 @@ local function OSKJZJ_fake_script() -- lvl.upd
 	updateLevelText()
 	
 end
-coroutine.wrap(OSKJZJ_fake_script)()
-local function BYSQ_fake_script() -- Frame.ChestFire 
+coroutine.wrap(JAODWK_fake_script)()
+local function HUAP_fake_script() -- Frame.ChestFire 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -140,8 +140,8 @@ local function BYSQ_fake_script() -- Frame.ChestFire
 	end
 	
 end
-coroutine.wrap(BYSQ_fake_script)()
-local function ELWA_fake_script() -- money.upd 
+coroutine.wrap(HUAP_fake_script)()
+local function PAODKJW_fake_script() -- money.upd 
 	local script = Instance.new('LocalScript', money)
 
 	local player = game.Players.LocalPlayer
@@ -161,14 +161,14 @@ local function ELWA_fake_script() -- money.upd
 	updateBeliText()
 	
 end
-coroutine.wrap(ELWA_fake_script)()
-local function KHQCV_fake_script() -- Frame.antiafk 
+coroutine.wrap(PAODKJW_fake_script)()
+local function OYPKUT_fake_script() -- Frame.antiafk 
 	local script = Instance.new('LocalScript', Frame)
 
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/NoTwistedHere/Roblox/main/AntiAFK.lua"))()
 end
-coroutine.wrap(KHQCV_fake_script)()
-local function AFMOI_fake_script() -- Frame.fpsboost 
+coroutine.wrap(OYPKUT_fake_script)()
+local function JEODKMA_fake_script() -- Frame.fpsboost 
 	local script = Instance.new('LocalScript', Frame)
 
 	_G.Ignore = {}
@@ -222,8 +222,8 @@ local function AFMOI_fake_script() -- Frame.fpsboost
 	}
 	loadstring(game:HttpGet("https://pastebin.com/raw/4Zcpfp32"))()
 end
-coroutine.wrap(AFMOI_fake_script)()
-local function EHHWKHX_fake_script() -- Frame.givemastery 
+coroutine.wrap(JEODKMA_fake_script)()
+local function KQAL_fake_script() -- Frame.givemastery 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -240,8 +240,8 @@ local function EHHWKHX_fake_script() -- Frame.givemastery
 	end
 	
 end
-coroutine.wrap(EHHWKHX_fake_script)()
-local function CGCBWNC_fake_script() -- Frame.FastAttack 
+coroutine.wrap(KQAL_fake_script)()
+local function NKCU_fake_script() -- Frame.FastAttack 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -259,8 +259,8 @@ local function CGCBWNC_fake_script() -- Frame.FastAttack
 		wait(0.5)  -- Adjust the wait time as needed (in seconds)
 	end
 end
-coroutine.wrap(CGCBWNC_fake_script)()
-local function OEDZWQ_fake_script() -- Frame.AutoBuso 
+coroutine.wrap(NKCU_fake_script)()
+local function IURH_fake_script() -- Frame.AutoBuso 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -295,8 +295,8 @@ local function OEDZWQ_fake_script() -- Frame.AutoBuso
 		AuraWorking.Value = true
 	end
 end
-coroutine.wrap(OEDZWQ_fake_script)()
-local function THGZZG_fake_script() -- Frame.NPCTeleport 
+coroutine.wrap(IURH_fake_script)()
+local function JTTUL_fake_script() -- Frame.NPCTeleport 
 	local script = Instance.new('LocalScript', Frame)
 
 	local Players = game:GetService("Players")
@@ -344,7 +344,10 @@ local function THGZZG_fake_script() -- Frame.NPCTeleport
 				local humanoid = player.Character:FindFirstChild("Humanoid")
 				if humanoid then
 					-- Disable gravity and keep the player from falling
-					humanoid.PlatformStand = true  -- Prevents falling
+					humanoid.PlatformStand = true
+					humanoid.UseJumpPower = false
+					humanoid.AutoRotate = false
+					humanoid.Gravity = 0  -- Disable gravity
 				end
 	
 				local dummy = dummyModels[currentIndex]
@@ -359,10 +362,13 @@ local function THGZZG_fake_script() -- Frame.NPCTeleport
 					player.Character:SetPrimaryPartCFrame(CFrame.new(targetPosition))
 				end
 	
-				-- After teleporting, allow gravity again
+				-- After teleporting, restore gravity and normal physics
 				wait(0.1)  -- Small delay before restoring gravity
 				if humanoid then
-					humanoid.PlatformStand = false  -- Restore gravity and normal physics
+					humanoid.PlatformStand = true
+					humanoid.UseJumpPower = false
+					humanoid.AutoRotate = false
+					humanoid.Gravity = 0  -- Default gravity value
 				end
 			end
 	
@@ -390,8 +396,8 @@ local function THGZZG_fake_script() -- Frame.NPCTeleport
 	end
 	
 end
-coroutine.wrap(THGZZG_fake_script)()
-local function GSOXUH_fake_script() -- Frame.autoequip 
+coroutine.wrap(JTTUL_fake_script)()
+local function SUJWNF_fake_script() -- Frame.autoequip 
 	local script = Instance.new('LocalScript', Frame)
 
 	local Players = game:GetService("Players")
@@ -425,4 +431,4 @@ local function GSOXUH_fake_script() -- Frame.autoequip
 	autoEquipFirstItem()
 	
 end
-coroutine.wrap(GSOXUH_fake_script)()
+coroutine.wrap(SUJWNF_fake_script)()
