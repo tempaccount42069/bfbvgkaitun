@@ -31,9 +31,23 @@ local distance = 5
 
 ss1:Label("Auto Chest Farm may lag your game (if it does use slower version)")
 
-ss:Dropdown("Select Tool", tool_table, function(SelectedOption)
-    SelectedWeapon = SelectedOption
+local Remote = game:GetService("ReplicatedStorage"):WaitForChild("ALLREMBINDS"):WaitForChild("MainRemoteEvent")
+
+ss:Dropdown("Select Fruit", {"Dragon (West) Fruit", "Dragon (East) Fruit", "Flame Fruit", "Kitsune Fruit", "Leopard Fruit", "Dough Fruit", "Magma Fruit", "Venom Fruit", "Light Fruit", "Ice Fruit", "Hito Fruit", "Control Fruit"}, function(selectedFruit)
+    local args = {
+        [1] = "EMMFOSS__!ZCNSJNXCSDWQSANBX",
+        [2] = "AddToolToBackpackKKK",
+        [3] = {
+            [1] = selectedFruit,
+            [2] = game.Players.LocalPlayer.Backpack,
+            [3] = true,
+            [4] = true
+        }
+    }
+    
+    Remote:FireServer(unpack(args))  -- Using the correct remote object to fire the server event
 end)
+
 
 local AutoFarmActive = false  -- Global flag to control the Auto Chest Farm loop
 local autofarm = false
