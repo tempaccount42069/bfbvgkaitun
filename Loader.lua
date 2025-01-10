@@ -19,6 +19,14 @@ local targetGameIDs = {
     [80711432533334] = function()
         -- Code for Game 2
         loadstring(game:HttpGet("https://raw.githubusercontent.com/tempaccount42069/bfbvgkaitun/refs/heads/main/BloxFruitsButVeryGood.lua"))()
+    end,
+    [2753915549] = function()
+        -- Code for Game 2
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "KitKat Hub";
+        Text = "Coming soon :wink:";
+        Duration = 5;
+    })
     end
 }
 
