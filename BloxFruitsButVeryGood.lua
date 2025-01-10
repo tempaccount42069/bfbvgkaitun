@@ -94,29 +94,29 @@ ss:Toggle("Auto Chest Farm", function(t)
             -- Move to the next chest, cycling back to the first if at the end
             currentIndex = (currentIndex % #chestParts) + 1
 
-            -- Add a delay between teleports
+            -- Add a delay between teleports to ensure the player doesn't teleport too quickly
             wait(0.01) -- Adjust the time as needed
         end
     end
 
-    -- Start or stop the teleportation cycle based on the toggle state
+    -- Toggle handling: start or stop the teleportation loop
     if t then
-        spawn(teleportToChestsInCycle) -- Start the teleportation loop in a coroutine
+        -- Start the teleportation loop in a coroutine
+        coroutine.wrap(teleportToChestsInCycle)()
     else
-        AutoFarmActive = false -- Stop the teleportation loop
+        AutoFarmActive = false -- Stop the teleportation loop when toggled off
     end
 
     -- Restart the teleportation cycle when the player's character is reset
     player.CharacterAdded:Connect(function()
         if t then
-            spawn(teleportToChestsInCycle) -- Start the teleportation loop when a new character is added
+            -- Only start teleporting if the toggle is still active
+            coroutine.wrap(teleportToChestsInCycle)()
         end
     end)
 
 end)
 
-
-    
 ss:Dropdown("Mobs To Farm",Npc_Table,function(t)
 mobs = t     
 end) 
