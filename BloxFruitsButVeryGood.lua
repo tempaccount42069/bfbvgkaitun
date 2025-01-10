@@ -10,10 +10,14 @@ local Window = Library:NewWindow("KitKat Hub")
 
 local Section = Window:NewSection("Blox Fruits But Very Good")
 
-Section:CreateButton("Collect All Chests", function()
-    for _, v in ipairs(chest:GetChildren()) do
-        firetouchinterest(localPlayer.Character.HumanoidRootPart, v, 0)
-        firetouchinterest(localPlayer.Character.HumanoidRootPart, v, 1)
+-- Create a toggle to collect all chests
+Section:CreateToggle("Auto Farm Chests", function(value)
+    if value then
+        -- When toggle is enabled (true), start collecting chests
+        for _, v in ipairs(chest:GetChildren()) do
+            firetouchinterest(localPlayer.Character.HumanoidRootPart, v, 0)
+            firetouchinterest(localPlayer.Character.HumanoidRootPart, v, 1)
+        end
     end
 end)
 
