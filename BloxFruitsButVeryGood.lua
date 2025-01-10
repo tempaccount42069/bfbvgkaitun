@@ -133,6 +133,15 @@ sss:Toggle("Spam V Skill", spamSkill(Enum.KeyCode.V))
 sss:Toggle("Spam E Skill", spamSkill(Enum.KeyCode.E))
 sss:Toggle("Spam Z Skill", spamSkill(Enum.KeyCode.Z))
 
+-- "HOW TO USE" Tab elements
+ss1:Button("Destroy Gui", function()
+    game.CoreGui["Library"]:Destroy()
+end)
+
+ss1:Label("Auto level farm may lag your game, if it does use slower version")
+ss1:Label("Use the toggles to enable various autofarm options")
+ss1:Label("Make sure you select a fruit to autofarm")
+
 -- Credits
 cred:Button("Copy Discord Server", function()
     setclipboard("https://discord.gg/RFnU82Jxgn")
