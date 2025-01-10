@@ -61,7 +61,7 @@ UITextSizeConstraint_2.MaxTextSize = 50
 
 -- Scripts:
 
-local function ZINDXR_fake_script() -- Frame.ChestFire 
+local function GRXV_fake_script() -- Frame.ChestFire 
 	local script = Instance.new('LocalScript', Frame)
 
 	local Players = game:GetService("Players")
@@ -97,14 +97,14 @@ local function ZINDXR_fake_script() -- Frame.ChestFire
 	end
 	
 end
-coroutine.wrap(ZINDXR_fake_script)()
-local function QWKLSI_fake_script() -- Frame.antiafk 
+coroutine.wrap(GRXV_fake_script)()
+local function YUPEYAH_fake_script() -- Frame.antiafk 
 	local script = Instance.new('LocalScript', Frame)
 
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/NoTwistedHere/Roblox/main/AntiAFK.lua"))()
 end
-coroutine.wrap(QWKLSI_fake_script)()
-local function WHRW_fake_script() -- Frame.fpsboost 
+coroutine.wrap(YUPEYAH_fake_script)()
+local function TVNWK_fake_script() -- Frame.fpsboost 
 	local script = Instance.new('LocalScript', Frame)
 
 	_G.Ignore = {}
@@ -158,8 +158,8 @@ local function WHRW_fake_script() -- Frame.fpsboost
 	}
 	loadstring(game:HttpGet("https://pastebin.com/raw/4Zcpfp32"))()
 end
-coroutine.wrap(WHRW_fake_script)()
-local function ISEKW_fake_script() -- Frame.givemastery 
+coroutine.wrap(TVNWK_fake_script)()
+local function YQXXC_fake_script() -- Frame.givemastery 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -176,8 +176,8 @@ local function ISEKW_fake_script() -- Frame.givemastery
 	end
 	
 end
-coroutine.wrap(ISEKW_fake_script)()
-local function XBPK_fake_script() -- Frame.FastAttack 
+coroutine.wrap(YQXXC_fake_script)()
+local function ZZDV_fake_script() -- Frame.FastAttack 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -195,8 +195,8 @@ local function XBPK_fake_script() -- Frame.FastAttack
 		wait(0.45)  -- Adjust the wait time as needed (in seconds)
 	end
 end
-coroutine.wrap(XBPK_fake_script)()
-local function QQZKIB_fake_script() -- Frame.AutoBuso 
+coroutine.wrap(ZZDV_fake_script)()
+local function UNOOCS_fake_script() -- Frame.AutoBuso 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -231,8 +231,8 @@ local function QQZKIB_fake_script() -- Frame.AutoBuso
 		AuraWorking.Value = true
 	end
 end
-coroutine.wrap(QQZKIB_fake_script)()
-local function ZQDFLWL_fake_script() -- Frame.NPCTeleport 
+coroutine.wrap(UNOOCS_fake_script)()
+local function YUGTCVT_fake_script() -- Frame.NPCTeleport 
 	local script = Instance.new('LocalScript', Frame)
 
 	local Players = game:GetService("Players")
@@ -338,8 +338,8 @@ local function ZQDFLWL_fake_script() -- Frame.NPCTeleport
 	end
 	
 end
-coroutine.wrap(ZQDFLWL_fake_script)()
-local function PTGQCT_fake_script() -- Frame.autoequip 
+coroutine.wrap(YUGTCVT_fake_script)()
+local function AMHEP_fake_script() -- Frame.autoequip 
 	local script = Instance.new('LocalScript', Frame)
 
 	local Players = game:GetService("Players")
@@ -384,4 +384,4 @@ local function PTGQCT_fake_script() -- Frame.autoequip
 	autoEquipFirstItem()
 	
 end
-coroutine.wrap(PTGQCT_fake_script)()
+coroutine.wrap(AMHEP_fake_script)()
