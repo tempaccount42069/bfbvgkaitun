@@ -101,7 +101,7 @@ UITextSizeConstraint_4.MaxTextSize = 50
 
 -- Scripts:
 
-local function UORRBJ_fake_script() -- lvl.upd 
+local function HQSZ_fake_script() -- lvl.upd 
 	local script = Instance.new('LocalScript', lvl)
 
 	local player = game.Players.LocalPlayer
@@ -121,8 +121,8 @@ local function UORRBJ_fake_script() -- lvl.upd
 	updateLevelText()
 	
 end
-coroutine.wrap(UORRBJ_fake_script)()
-local function FOGKOKR_fake_script() -- Frame.ChestFire 
+coroutine.wrap(HQSZ_fake_script)()
+local function PLUG_fake_script() -- Frame.ChestFire 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -140,8 +140,8 @@ local function FOGKOKR_fake_script() -- Frame.ChestFire
 	end
 	
 end
-coroutine.wrap(FOGKOKR_fake_script)()
-local function YURD_fake_script() -- money.upd 
+coroutine.wrap(PLUG_fake_script)()
+local function RDFGE_fake_script() -- money.upd 
 	local script = Instance.new('LocalScript', money)
 
 	local player = game.Players.LocalPlayer
@@ -161,14 +161,14 @@ local function YURD_fake_script() -- money.upd
 	updateBeliText()
 	
 end
-coroutine.wrap(YURD_fake_script)()
-local function UAVIFSB_fake_script() -- Frame.antiafk 
+coroutine.wrap(RDFGE_fake_script)()
+local function DCPP_fake_script() -- Frame.antiafk 
 	local script = Instance.new('LocalScript', Frame)
 
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/NoTwistedHere/Roblox/main/AntiAFK.lua"))()
 end
-coroutine.wrap(UAVIFSB_fake_script)()
-local function CEWSZ_fake_script() -- Frame.fpsboost 
+coroutine.wrap(DCPP_fake_script)()
+local function MCCU_fake_script() -- Frame.fpsboost 
 	local script = Instance.new('LocalScript', Frame)
 
 	_G.Ignore = {}
@@ -222,8 +222,8 @@ local function CEWSZ_fake_script() -- Frame.fpsboost
 	}
 	loadstring(game:HttpGet("https://pastebin.com/raw/4Zcpfp32"))()
 end
-coroutine.wrap(CEWSZ_fake_script)()
-local function NQCG_fake_script() -- Frame.givemastery 
+coroutine.wrap(MCCU_fake_script)()
+local function PYBKZZX_fake_script() -- Frame.givemastery 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -240,8 +240,8 @@ local function NQCG_fake_script() -- Frame.givemastery
 	end
 	
 end
-coroutine.wrap(NQCG_fake_script)()
-local function BHFEFPO_fake_script() -- Frame.FastAttack 
+coroutine.wrap(PYBKZZX_fake_script)()
+local function BQYHBT_fake_script() -- Frame.FastAttack 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -259,8 +259,8 @@ local function BHFEFPO_fake_script() -- Frame.FastAttack
 		wait(0.5)  -- Adjust the wait time as needed (in seconds)
 	end
 end
-coroutine.wrap(BHFEFPO_fake_script)()
-local function IAYWTHW_fake_script() -- Frame.AutoBuso 
+coroutine.wrap(BQYHBT_fake_script)()
+local function OMPTY_fake_script() -- Frame.AutoBuso 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -295,8 +295,8 @@ local function IAYWTHW_fake_script() -- Frame.AutoBuso
 		AuraWorking.Value = true
 	end
 end
-coroutine.wrap(IAYWTHW_fake_script)()
-local function LUPUB_fake_script() -- Frame.NPCTeleport 
+coroutine.wrap(OMPTY_fake_script)()
+local function CLYB_fake_script() -- Frame.NPCTeleport 
 	local script = Instance.new('LocalScript', Frame)
 
 	local Players = game:GetService("Players")
@@ -334,7 +334,7 @@ local function LUPUB_fake_script() -- Frame.NPCTeleport
 	-- Function to teleport the player to dummies in cycle
 	local function teleportToDummiesInCycle()
 		while true do
-			-- Wait until the player has a valid character and humanoid root part
+			-- Ensure the player is alive and has a valid character
 			while not player.Character or not player.Character:FindFirstChild("HumanoidRootPart") do
 				wait()
 			end
@@ -361,14 +361,17 @@ local function LUPUB_fake_script() -- Frame.NPCTeleport
 	
 						-- Teleport the player to that position, keeping them in the air
 						player.Character:SetPrimaryPartCFrame(CFrame.new(targetPosition))
+	
+						-- Wait briefly before removing the BodyVelocity
+						wait(0.1)
+	
+						-- Remove the BodyVelocity to restore normal physics behavior
+						bodyVelocity:Destroy()
+	
+						-- Allow time for the teleportation to settle before moving to the next dummy
+						wait(0.5)
 					end
 				end
-	
-				-- Wait briefly before removing the BodyVelocity
-				wait(0.1) 
-	
-				-- Remove the BodyVelocity to restore normal physics behavior
-				bodyVelocity:Destroy()
 			end
 	
 			-- Move to the next dummy, cycling back to the first if at the end
@@ -395,8 +398,8 @@ local function LUPUB_fake_script() -- Frame.NPCTeleport
 	end
 	
 end
-coroutine.wrap(LUPUB_fake_script)()
-local function LTLJ_fake_script() -- Frame.autoequip 
+coroutine.wrap(CLYB_fake_script)()
+local function LHYU_fake_script() -- Frame.autoequip 
 	local script = Instance.new('LocalScript', Frame)
 
 	local Players = game:GetService("Players")
@@ -430,4 +433,4 @@ local function LTLJ_fake_script() -- Frame.autoequip
 	autoEquipFirstItem()
 	
 end
-coroutine.wrap(LTLJ_fake_script)()
+coroutine.wrap(LHYU_fake_script)()
