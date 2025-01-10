@@ -100,7 +100,7 @@ UITextSizeConstraint_4.MaxTextSize = 50
 
 -- Scripts:
 
-local function NUIJVI_fake_script() -- lvl.LocalScript 
+local function CCYOIFA_fake_script() -- lvl.LocalScript 
 	local script = Instance.new('LocalScript', lvl)
 
 	local player = game.Players.LocalPlayer
@@ -113,8 +113,8 @@ local function NUIJVI_fake_script() -- lvl.LocalScript
 	end
 	
 end
-coroutine.wrap(NUIJVI_fake_script)()
-local function ZVCU_fake_script() -- Frame.lvlfarm 
+coroutine.wrap(CCYOIFA_fake_script)()
+local function ESDYNNO_fake_script() -- Frame.lvlfarm 
 	local script = Instance.new('LocalScript', Frame)
 
 	local Players = game:GetService("Players")
@@ -173,7 +173,7 @@ local function ZVCU_fake_script() -- Frame.lvlfarm
 			currentIndex = (currentIndex % #chestParts) + 1
 	
 			-- Add a delay between teleports
-			wait(0.1) -- Adjust the time as needed
+			wait(0.01) -- Adjust the time as needed
 		end
 	end
 	
@@ -188,8 +188,8 @@ local function ZVCU_fake_script() -- Frame.lvlfarm
 	end
 	
 end
-coroutine.wrap(ZVCU_fake_script)()
-local function MGSLJFW_fake_script() -- money.LocalScript 
+coroutine.wrap(ESDYNNO_fake_script)()
+local function WSUBI_fake_script() -- money.LocalScript 
 	local script = Instance.new('LocalScript', money)
 
 	local player = game.Players.LocalPlayer
@@ -202,14 +202,14 @@ local function MGSLJFW_fake_script() -- money.LocalScript
 	end
 	
 end
-coroutine.wrap(MGSLJFW_fake_script)()
-local function ZBLBHU_fake_script() -- Frame.antiafk 
+coroutine.wrap(WSUBI_fake_script)()
+local function EXZJYRY_fake_script() -- Frame.antiafk 
 	local script = Instance.new('LocalScript', Frame)
 
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/NoTwistedHere/Roblox/main/AntiAFK.lua"))()
 end
-coroutine.wrap(ZBLBHU_fake_script)()
-local function RCSFQTZ_fake_script() -- Frame.fpsboost 
+coroutine.wrap(EXZJYRY_fake_script)()
+local function RQOMHD_fake_script() -- Frame.fpsboost 
 	local script = Instance.new('LocalScript', Frame)
 
 	--[[
@@ -266,8 +266,8 @@ local function RCSFQTZ_fake_script() -- Frame.fpsboost
 	}
 	loadstring(game:HttpGet("https://pastebin.com/raw/4Zcpfp32"))()
 end
-coroutine.wrap(RCSFQTZ_fake_script)()
-local function XTWO_fake_script() -- Frame.automastery 
+coroutine.wrap(RQOMHD_fake_script)()
+local function EGNZBHM_fake_script() -- Frame.automastery 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -284,8 +284,8 @@ local function XTWO_fake_script() -- Frame.automastery
 	end
 	
 end
-coroutine.wrap(XTWO_fake_script)()
-local function TEDL_fake_script() -- Frame.enableken 
+coroutine.wrap(EGNZBHM_fake_script)()
+local function UNYMITL_fake_script() -- Frame.enableken 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -301,8 +301,8 @@ local function TEDL_fake_script() -- Frame.enableken
 	InstinctWorking.Value = true
 	
 end
-coroutine.wrap(TEDL_fake_script)()
-local function TYSWK_fake_script() -- Frame.enablebuso 
+coroutine.wrap(UNYMITL_fake_script)()
+local function PYFHO_fake_script() -- Frame.enablebuso 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -338,4 +338,4 @@ local function TYSWK_fake_script() -- Frame.enablebuso
 	end
 	
 end
-coroutine.wrap(TYSWK_fake_script)()
+coroutine.wrap(PYFHO_fake_script)()
