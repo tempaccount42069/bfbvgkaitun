@@ -101,7 +101,7 @@ UITextSizeConstraint_4.MaxTextSize = 50
 
 -- Scripts:
 
-local function HCNSD_fake_script() -- lvl.upd 
+local function OSKJZJ_fake_script() -- lvl.upd 
 	local script = Instance.new('LocalScript', lvl)
 
 	local player = game.Players.LocalPlayer
@@ -121,8 +121,8 @@ local function HCNSD_fake_script() -- lvl.upd
 	updateLevelText()
 	
 end
-coroutine.wrap(HCNSD_fake_script)()
-local function XYTSKNX_fake_script() -- Frame.ChestFire 
+coroutine.wrap(OSKJZJ_fake_script)()
+local function BYSQ_fake_script() -- Frame.ChestFire 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -140,8 +140,8 @@ local function XYTSKNX_fake_script() -- Frame.ChestFire
 	end
 	
 end
-coroutine.wrap(XYTSKNX_fake_script)()
-local function ZRIJCO_fake_script() -- money.upd 
+coroutine.wrap(BYSQ_fake_script)()
+local function ELWA_fake_script() -- money.upd 
 	local script = Instance.new('LocalScript', money)
 
 	local player = game.Players.LocalPlayer
@@ -161,14 +161,14 @@ local function ZRIJCO_fake_script() -- money.upd
 	updateBeliText()
 	
 end
-coroutine.wrap(ZRIJCO_fake_script)()
-local function YOQXSVH_fake_script() -- Frame.antiafk 
+coroutine.wrap(ELWA_fake_script)()
+local function KHQCV_fake_script() -- Frame.antiafk 
 	local script = Instance.new('LocalScript', Frame)
 
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/NoTwistedHere/Roblox/main/AntiAFK.lua"))()
 end
-coroutine.wrap(YOQXSVH_fake_script)()
-local function NSJD_fake_script() -- Frame.fpsboost 
+coroutine.wrap(KHQCV_fake_script)()
+local function AFMOI_fake_script() -- Frame.fpsboost 
 	local script = Instance.new('LocalScript', Frame)
 
 	_G.Ignore = {}
@@ -222,8 +222,8 @@ local function NSJD_fake_script() -- Frame.fpsboost
 	}
 	loadstring(game:HttpGet("https://pastebin.com/raw/4Zcpfp32"))()
 end
-coroutine.wrap(NSJD_fake_script)()
-local function PRBNLX_fake_script() -- Frame.givemastery 
+coroutine.wrap(AFMOI_fake_script)()
+local function EHHWKHX_fake_script() -- Frame.givemastery 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -240,8 +240,8 @@ local function PRBNLX_fake_script() -- Frame.givemastery
 	end
 	
 end
-coroutine.wrap(PRBNLX_fake_script)()
-local function XGNR_fake_script() -- Frame.FastAttack 
+coroutine.wrap(EHHWKHX_fake_script)()
+local function CGCBWNC_fake_script() -- Frame.FastAttack 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -259,8 +259,8 @@ local function XGNR_fake_script() -- Frame.FastAttack
 		wait(0.5)  -- Adjust the wait time as needed (in seconds)
 	end
 end
-coroutine.wrap(XGNR_fake_script)()
-local function KUJV_fake_script() -- Frame.AutoBuso 
+coroutine.wrap(CGCBWNC_fake_script)()
+local function OEDZWQ_fake_script() -- Frame.AutoBuso 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -295,8 +295,8 @@ local function KUJV_fake_script() -- Frame.AutoBuso
 		AuraWorking.Value = true
 	end
 end
-coroutine.wrap(KUJV_fake_script)()
-local function UFWJHPF_fake_script() -- Frame.NPCTeleport 
+coroutine.wrap(OEDZWQ_fake_script)()
+local function THGZZG_fake_script() -- Frame.NPCTeleport 
 	local script = Instance.new('LocalScript', Frame)
 
 	local Players = game:GetService("Players")
@@ -341,6 +341,12 @@ local function UFWJHPF_fake_script() -- Frame.NPCTeleport
 	
 			-- Ensure the player is still alive and has a PrimaryPart
 			if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+				local humanoid = player.Character:FindFirstChild("Humanoid")
+				if humanoid then
+					-- Disable gravity and keep the player from falling
+					humanoid.PlatformStand = true  -- Prevents falling
+				end
+	
 				local dummy = dummyModels[currentIndex]
 				local humanoidRootPart = dummy:FindFirstChild("HumanoidRootPart")
 	
@@ -351,6 +357,12 @@ local function UFWJHPF_fake_script() -- Frame.NPCTeleport
 	
 					-- Teleport the player to that position, keeping the character in the air
 					player.Character:SetPrimaryPartCFrame(CFrame.new(targetPosition))
+				end
+	
+				-- After teleporting, allow gravity again
+				wait(0.1)  -- Small delay before restoring gravity
+				if humanoid then
+					humanoid.PlatformStand = false  -- Restore gravity and normal physics
 				end
 			end
 	
@@ -378,8 +390,8 @@ local function UFWJHPF_fake_script() -- Frame.NPCTeleport
 	end
 	
 end
-coroutine.wrap(UFWJHPF_fake_script)()
-local function RVTGI_fake_script() -- Frame.autoequip 
+coroutine.wrap(THGZZG_fake_script)()
+local function GSOXUH_fake_script() -- Frame.autoequip 
 	local script = Instance.new('LocalScript', Frame)
 
 	local Players = game:GetService("Players")
@@ -413,4 +425,4 @@ local function RVTGI_fake_script() -- Frame.autoequip
 	autoEquipFirstItem()
 	
 end
-coroutine.wrap(RVTGI_fake_script)()
+coroutine.wrap(GSOXUH_fake_script)()
