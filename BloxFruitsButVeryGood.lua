@@ -8,7 +8,7 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/blood
 
 local Window = Library:NewWindow("KitKat Hub")
 
-local Section = Window:NewSection("Main")
+local Section = Window:NewSection("Blox Fruits But Very Good")
 
 Section:CreateButton("Collect All Chests", function()
     for _, v in ipairs(chest:GetChildren()) do
