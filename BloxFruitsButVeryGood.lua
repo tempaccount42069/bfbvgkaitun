@@ -10,14 +10,10 @@ local Window = Library:NewWindow("KitKat Hub")
 
 local Section = Window:NewSection("Blox Fruits But Very Good")
 
--- Create a toggle to collect all chests
-Section:CreateToggle("Auto Farm Chests", function(value)
-    if value then
-        -- When toggle is enabled (true), start collecting chests
-        for _, v in ipairs(chest:GetChildren()) do
-            firetouchinterest(localPlayer.Character.HumanoidRootPart, v, 0)
-            firetouchinterest(localPlayer.Character.HumanoidRootPart, v, 1)
-        end
+Section:CreateButton("Collect All Chests", function()
+    for _, v in ipairs(chest:GetChildren()) do
+        firetouchinterest(localPlayer.Character.HumanoidRootPart, v, 0)
+        firetouchinterest(localPlayer.Character.HumanoidRootPart, v, 1)
     end
 end)
 
@@ -29,7 +25,7 @@ Section:CreateButton("Kill All Players/NPCs", function()
             end
         end)
 
-Section:CreateButton("Fling All Players/NPCs", function()
+Section:CreateButton("Fling Everything", function()
     for _, character in pairs(npc:GetChildren()) do
         if character:IsA("Model") and character:FindFirstChild("Humanoid") and character.Name ~= localPlayer.Name then
             Remote:FireServer("EMMFOSS__!ZCNSJNXCSDWQSANBX", "ASeemblyLinearVEllChangerr", {character:FindFirstChild("HumanoidRootPart"), Vector3.new(0, 1000, 0)})
