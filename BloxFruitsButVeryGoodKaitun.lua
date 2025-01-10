@@ -9,10 +9,6 @@ local big = Instance.new("TextLabel")
 local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
 local yes = Instance.new("TextLabel")
 local UITextSizeConstraint_2 = Instance.new("UITextSizeConstraint")
-local lvl = Instance.new("TextLabel")
-local UITextSizeConstraint_3 = Instance.new("UITextSizeConstraint")
-local money = Instance.new("TextLabel")
-local UITextSizeConstraint_4 = Instance.new("UITextSizeConstraint")
 
 --Properties:
 
@@ -54,7 +50,7 @@ yes.BorderSizePixel = 0
 yes.Position = UDim2.new(0, 0, 0.156899825, 0)
 yes.Size = UDim2.new(1, 0, 0.0945179611, 0)
 yes.Font = Enum.Font.SourceSansSemibold
-yes.Text = "Made by kitkat2iskewl"
+yes.Text = "Kaitun | KitKat Hub"
 yes.TextColor3 = Color3.fromRGB(255, 255, 255)
 yes.TextScaled = true
 yes.TextSize = 14.000
@@ -63,112 +59,52 @@ yes.TextWrapped = true
 UITextSizeConstraint_2.Parent = yes
 UITextSizeConstraint_2.MaxTextSize = 50
 
-lvl.Name = "lvl"
-lvl.Parent = Frame
-lvl.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-lvl.BackgroundTransparency = 1.000
-lvl.BorderColor3 = Color3.fromRGB(0, 0, 0)
-lvl.BorderSizePixel = 0
-lvl.Position = UDim2.new(0, 0, 0.274102092, 0)
-lvl.Size = UDim2.new(1, 0, 0.0945179611, 0)
-lvl.Font = Enum.Font.SourceSansSemibold
-lvl.Text = "Could not get level (Reason: idk bro)"
-lvl.TextColor3 = Color3.fromRGB(0, 221, 255)
-lvl.TextScaled = true
-lvl.TextSize = 14.000
-lvl.TextWrapped = true
-
-UITextSizeConstraint_3.Parent = lvl
-UITextSizeConstraint_3.MaxTextSize = 50
-
-money.Name = "money"
-money.Parent = Frame
-money.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-money.BackgroundTransparency = 1.000
-money.BorderColor3 = Color3.fromRGB(0, 0, 0)
-money.BorderSizePixel = 0
-money.Position = UDim2.new(0, 0, 0.368620038, 0)
-money.Size = UDim2.new(1, 0, 0.0945179611, 0)
-money.Font = Enum.Font.SourceSansSemibold
-money.Text = "Could not get money (Reason: idk bro)"
-money.TextColor3 = Color3.fromRGB(0, 255, 11)
-money.TextScaled = true
-money.TextSize = 14.000
-money.TextWrapped = true
-
-UITextSizeConstraint_4.Parent = money
-UITextSizeConstraint_4.MaxTextSize = 50
-
 -- Scripts:
 
-local function ILGXK_fake_script() -- lvl.upd 
-	local script = Instance.new('LocalScript', lvl)
-
-	local player = game.Players.LocalPlayer
-	local playerGui = player:WaitForChild("PlayerGui")
-	local levelTextLabel = playerGui:WaitForChild("Main"):WaitForChild("Level")
-	local targetTextLabel = script.Parent  -- The TextLabel that should be updated
-	
-	-- Function to update targetTextLabel text
-	local function updateLevelText()
-		targetTextLabel.Text = levelTextLabel.Text  -- Set the target label's Text to the level text
-	end
-	
-	-- Update the text whenever the levelTextLabel's text changes
-	levelTextLabel:GetPropertyChangedSignal("Text"):Connect(updateLevelText)
-	
-	-- Optionally, you can call it once initially to synchronize the labels
-	updateLevelText()
-	
-end
-coroutine.wrap(ILGXK_fake_script)()
-local function SELFLEM_fake_script() -- Frame.ChestFire 
+local function ZINDXR_fake_script() -- Frame.ChestFire 
 	local script = Instance.new('LocalScript', Frame)
 
-	local localPlayer = game:GetService("Players").LocalPlayer
+	local Players = game:GetService("Players")
+	local localPlayer = Players.LocalPlayer
 	local npc = game.Workspace:WaitForChild("Characters")
 	local Remote = game:GetService("ReplicatedStorage"):WaitForChild("ALLREMBINDS"):WaitForChild("MainRemoteEvent")
 	local fruits = localPlayer.PlayerStats.Tools
 	local chest = game.Workspace.World.Chests
 	
+	-- Wait for the character and HumanoidRootPart to be loaded
+	local function waitForCharacter()
+		while not localPlayer.Character or not localPlayer.Character:FindFirstChild("HumanoidRootPart") do
+			wait(0.1) -- Wait for the character to load
+		end
+	end
+	
+	waitForCharacter()  -- Wait for the player character to be available
+	
+	local character = localPlayer.Character
+	local humanoidRootPart = character.HumanoidRootPart
+	
 	while true do
-		for _, v in ipairs(chest:GetChildren()) do
-			firetouchinterest(localPlayer.Character.HumanoidRootPart, v, 0)
-			firetouchinterest(localPlayer.Character.HumanoidRootPart, v, 1)
+		-- Make sure the character and HumanoidRootPart are still available
+		if character and character:FindFirstChild("HumanoidRootPart") then
+			-- Iterate through all chests
+			for _, chestInstance in ipairs(chest:GetChildren()) do
+				-- Fire touch events on the chests
+				firetouchinterest(humanoidRootPart, chestInstance, 0)
+				firetouchinterest(humanoidRootPart, chestInstance, 1)
+			end
 		end
 		wait(0.1)  -- Adjust the wait time as needed (in seconds)
 	end
 	
 end
-coroutine.wrap(SELFLEM_fake_script)()
-local function DGZAA_fake_script() -- money.upd 
-	local script = Instance.new('LocalScript', money)
-
-	local player = game.Players.LocalPlayer
-	local playerGui = player:WaitForChild("PlayerGui")
-	local levelTextLabel = playerGui:WaitForChild("Main"):WaitForChild("Beli")
-	local targetTextLabel = script.Parent  -- The TextLabel that should be updated
-	
-	-- Function to update targetTextLabel's text
-	local function updateBeliText()
-		targetTextLabel.Text = levelTextLabel.Text  -- Set the target label's Text to the Beli text
-	end
-	
-	-- Update the targetTextLabel whenever the levelTextLabel's text changes
-	levelTextLabel:GetPropertyChangedSignal("Text"):Connect(updateBeliText)
-	
-	-- Optionally, you can call it once initially to synchronize the labels
-	updateBeliText()
-	
-end
-coroutine.wrap(DGZAA_fake_script)()
-local function QPQIU_fake_script() -- Frame.antiafk 
+coroutine.wrap(ZINDXR_fake_script)()
+local function QWKLSI_fake_script() -- Frame.antiafk 
 	local script = Instance.new('LocalScript', Frame)
 
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/NoTwistedHere/Roblox/main/AntiAFK.lua"))()
 end
-coroutine.wrap(QPQIU_fake_script)()
-local function VUNR_fake_script() -- Frame.fpsboost 
+coroutine.wrap(QWKLSI_fake_script)()
+local function WHRW_fake_script() -- Frame.fpsboost 
 	local script = Instance.new('LocalScript', Frame)
 
 	_G.Ignore = {}
@@ -222,8 +158,8 @@ local function VUNR_fake_script() -- Frame.fpsboost
 	}
 	loadstring(game:HttpGet("https://pastebin.com/raw/4Zcpfp32"))()
 end
-coroutine.wrap(VUNR_fake_script)()
-local function WNSVJ_fake_script() -- Frame.givemastery 
+coroutine.wrap(WHRW_fake_script)()
+local function ISEKW_fake_script() -- Frame.givemastery 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -240,8 +176,8 @@ local function WNSVJ_fake_script() -- Frame.givemastery
 	end
 	
 end
-coroutine.wrap(WNSVJ_fake_script)()
-local function SCSL_fake_script() -- Frame.FastAttack 
+coroutine.wrap(ISEKW_fake_script)()
+local function XBPK_fake_script() -- Frame.FastAttack 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -256,11 +192,11 @@ local function SCSL_fake_script() -- Frame.FastAttack
 				Remote:FireServer("EMMFOSS__!ZCNSJNXCSDWQSANBX", "Main_DamgeR___", {character, {Using = "Combat", Damge = 9999, FromPlayer = localPlayer}})
 			end
 		end
-		wait(0.5)  -- Adjust the wait time as needed (in seconds)
+		wait(0.45)  -- Adjust the wait time as needed (in seconds)
 	end
 end
-coroutine.wrap(SCSL_fake_script)()
-local function ORMMCPN_fake_script() -- Frame.AutoBuso 
+coroutine.wrap(XBPK_fake_script)()
+local function QQZKIB_fake_script() -- Frame.AutoBuso 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -295,8 +231,8 @@ local function ORMMCPN_fake_script() -- Frame.AutoBuso
 		AuraWorking.Value = true
 	end
 end
-coroutine.wrap(ORMMCPN_fake_script)()
-local function OAEV_fake_script() -- Frame.NPCTeleport 
+coroutine.wrap(QQZKIB_fake_script)()
+local function ZQDFLWL_fake_script() -- Frame.NPCTeleport 
 	local script = Instance.new('LocalScript', Frame)
 
 	local Players = game:GetService("Players")
@@ -318,7 +254,7 @@ local function OAEV_fake_script() -- Frame.NPCTeleport
 		-- Collect all dummy models (dummey1 to dummey11)
 		dummyModels = {}
 		for i = 1, 11 do
-			local dummyName = "dummey" .. i
+			local dummyName = "dummey" .. i  -- Using "dummey" as specified
 			local dummy = charactersFolder:FindFirstChild(dummyName)
 			if dummy and dummy:FindFirstChild("HumanoidRootPart") then
 				table.insert(dummyModels, dummy)
@@ -341,7 +277,7 @@ local function OAEV_fake_script() -- Frame.NPCTeleport
 	
 			-- Ensure the character has a HumanoidRootPart
 			if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
-				local humanoidRootPart = player.Character:FindFirstChild("HumanoidRootPart")
+				local humanoidRootPart = player.Character.HumanoidRootPart
 	
 				-- Create a BodyVelocity object to keep the player in the air
 				local bodyVelocity = Instance.new("BodyVelocity")
@@ -370,6 +306,10 @@ local function OAEV_fake_script() -- Frame.NPCTeleport
 	
 						-- Allow time for the teleportation to settle before moving to the next dummy
 						wait(0.5)
+					elseif dummyHumanoid.Health > 0 then
+						-- If the dummy is alive, teleport the player directly to the dummy's HumanoidRootPart
+						player.Character:SetPrimaryPartCFrame(dummyHumanoidRootPart.CFrame)
+						wait(0.5)  -- Allow time for the teleportation
 					end
 				end
 			end
@@ -378,7 +318,7 @@ local function OAEV_fake_script() -- Frame.NPCTeleport
 			currentIndex = (currentIndex % #dummyModels) + 1
 	
 			-- Add a delay between teleports
-			wait(0.5) -- Adjust the time as needed
+			wait(0.5) -- Adjust the time as needed (increase delay between teleportations)
 		end
 	end
 	
@@ -398,8 +338,8 @@ local function OAEV_fake_script() -- Frame.NPCTeleport
 	end
 	
 end
-coroutine.wrap(OAEV_fake_script)()
-local function MOOE_fake_script() -- Frame.autoequip 
+coroutine.wrap(ZQDFLWL_fake_script)()
+local function PTGQCT_fake_script() -- Frame.autoequip 
 	local script = Instance.new('LocalScript', Frame)
 
 	local Players = game:GetService("Players")
@@ -444,4 +384,4 @@ local function MOOE_fake_script() -- Frame.autoequip
 	autoEquipFirstItem()
 	
 end
-coroutine.wrap(MOOE_fake_script)()
+coroutine.wrap(PTGQCT_fake_script)()
