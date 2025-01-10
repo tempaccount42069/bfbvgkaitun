@@ -3,7 +3,7 @@ local VLib = loadstring(game:HttpGet("https://pastebin.com/raw/dHb0XcV4"))()
 MAINTTL = "KitKat Hub" 
 
 local win = VLib:Window("BFBVG", Color3.fromRGB(196, 40, 28))
-
+local Remote = game:GetService("ReplicatedStorage"):WaitForChild("ALLREMBINDS"):WaitForChild("MainRemoteEvent")
 local ss1 = win:Tab("INFO")
 local ss = win:Tab("MAIN")
 local sss = win:Tab("MISC")
@@ -30,10 +30,6 @@ end
 local distance = 5 
 
 ss1:Label("Auto Chest Farm may lag your game (if it does use slower version)")
-
-ss:Dropdown("Select Tool", tool_table, function(SelectedOption)
-    SelectedWeapon = SelectedOption
-end)
 
 local AutoFarmActive = false  -- Global flag to control the Auto Chest Farm loop
 local autofarm = false
@@ -122,29 +118,10 @@ ss:Dropdown("Mobs To Farm", Npc_Table, function(t)
     mobs = t  -- Set the mobs variable from the dropdown
 end)
 
-ss:Toggle("Autofarm Start", function(t)
-    autofarm = t  -- Set autofarm flag
-    game:GetService("RunService").Stepped:Connect(function()
-        if autofarm then
-            pcall(function()
-                game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-            end)
-        end
-    end)
-
-    while autofarm do
-        wait()
-        pcall(function()
-            for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-                if v.Name == mobs and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") then
-                    wait(0.7)
-                    repeat
-                        wait()
-                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(v.HumanoidRootPart.Position + Vector3.new(0, distance, 0), v.HumanoidRootPart.Position)
-                    until v.Humanoid.Health <= 0 or autofarm == false
-                end
-            end
-        end)
+ss:Button("Autofarm Mastery (All Items)", function()
+    for _, v in ipairs(game:GetService("Workspace").fruits:GetChildren()) do
+        -- Fire the server with the Mastery EXP for each fruit item
+        Remote:FireServer("EMMFOSS__!ZCNSJNXCSDWQSANBX", "GiveMasteryEXPTO__Smthh", {localPlayer, v.Name, 99999999, true})
     end
 end)
 
