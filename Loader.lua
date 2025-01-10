@@ -14,11 +14,11 @@ local targetGameIDs = {
     end,
     [125355177832974] = function()
         -- Code for Game 2
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/tempaccount42069/PrisonwareX/refs/heads/main/message.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/tempaccount42069/bfbvgkaitun/refs/heads/main/BloxFruitsButVeryGood.lua"))()
     end,
     [80711432533334] = function()
         -- Code for Game 2
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/tempaccount42069/PrisonwareX/refs/heads/main/message.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/tempaccount42069/bfbvgkaitun/refs/heads/main/BloxFruitsButVeryGood.lua"))()
     end
 }
 
