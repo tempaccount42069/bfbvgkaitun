@@ -31,9 +31,7 @@ end
     distance = 5 
     
     
-     ss1:Label("You need to have a fruit inorder to hit mobs")
-     ss1:Label("Once you have a fruit auto equip it")
-     ss1:Label("then Spam Skills From Misc Tab")
+     ss1:Label("Auto level farm may lag your game, if it does use slower version")
  
  
 ss:Dropdown("Select Tool",tool_table,function(SelectedOption)
@@ -160,7 +158,7 @@ while skillsZ do wait()
 end)
 
 cred:Button("Copy Discord Server",function()
-setclipboard("paste your discord link here")
+setclipboard("https://discord.gg/RFnU82Jxgn")
 end) 
 
-cred:Label("MADE BY ââ·âNiceBBMB#5242")
+cred:Label("MADE BY kitkat2iskewl")
