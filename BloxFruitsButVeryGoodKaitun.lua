@@ -11,10 +11,8 @@ local yes = Instance.new("TextLabel")
 local UITextSizeConstraint_2 = Instance.new("UITextSizeConstraint")
 local lvl = Instance.new("TextLabel")
 local UITextSizeConstraint_3 = Instance.new("UITextSizeConstraint")
-local quote = Instance.new("TextLabel")
-local UITextSizeConstraint_4 = Instance.new("UITextSizeConstraint")
 local money = Instance.new("TextLabel")
-local UITextSizeConstraint_5 = Instance.new("UITextSizeConstraint")
+local UITextSizeConstraint_4 = Instance.new("UITextSizeConstraint")
 
 --Properties:
 
@@ -55,7 +53,7 @@ yes.BorderSizePixel = 0
 yes.Position = UDim2.new(0, 0, 0.156899825, 0)
 yes.Size = UDim2.new(1, 0, 0.0945179611, 0)
 yes.Font = Enum.Font.SourceSansSemibold
-yes.Text = "Farm levels while going outside :)"
+yes.Text = "Made by kitkat2iskewl :)"
 yes.TextColor3 = Color3.fromRGB(255, 255, 255)
 yes.TextScaled = true
 yes.TextSize = 14.000
@@ -74,31 +72,13 @@ lvl.Position = UDim2.new(0, 0, 0.274102092, 0)
 lvl.Size = UDim2.new(1, 0, 0.0945179611, 0)
 lvl.Font = Enum.Font.SourceSansSemibold
 lvl.Text = "Could not get level (Reason: idk bro)"
-lvl.TextColor3 = Color3.fromRGB(255, 255, 255)
+lvl.TextColor3 = Color3.fromRGB(0, 238, 255)
 lvl.TextScaled = true
 lvl.TextSize = 14.000
 lvl.TextWrapped = true
 
 UITextSizeConstraint_3.Parent = lvl
 UITextSizeConstraint_3.MaxTextSize = 50
-
-quote.Name = "quote"
-quote.Parent = Frame
-quote.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-quote.BackgroundTransparency = 1.000
-quote.BorderColor3 = Color3.fromRGB(0, 0, 0)
-quote.BorderSizePixel = 0
-quote.Position = UDim2.new(0, 0, 0.882797718, 0)
-quote.Size = UDim2.new(1, 0, 0.0945179611, 0)
-quote.Font = Enum.Font.SourceSansSemibold
-quote.Text = ""
-quote.TextColor3 = Color3.fromRGB(255, 255, 255)
-quote.TextScaled = true
-quote.TextSize = 14.000
-quote.TextWrapped = true
-
-UITextSizeConstraint_4.Parent = quote
-UITextSizeConstraint_4.MaxTextSize = 50
 
 money.Name = "money"
 money.Parent = Frame
@@ -110,17 +90,17 @@ money.Position = UDim2.new(0, 0, 0.368620038, 0)
 money.Size = UDim2.new(1, 0, 0.0945179611, 0)
 money.Font = Enum.Font.SourceSansSemibold
 money.Text = "Could not get money (Reason: idk bro)"
-money.TextColor3 = Color3.fromRGB(255, 255, 255)
+money.TextColor3 = Color3.fromRGB(0, 255, 11)
 money.TextScaled = true
 money.TextSize = 14.000
 money.TextWrapped = true
 
-UITextSizeConstraint_5.Parent = money
-UITextSizeConstraint_5.MaxTextSize = 50
+UITextSizeConstraint_4.Parent = money
+UITextSizeConstraint_4.MaxTextSize = 50
 
 -- Scripts:
 
-local function GEPUCIA_fake_script() -- lvl.LocalScript 
+local function NUIJVI_fake_script() -- lvl.LocalScript 
 	local script = Instance.new('LocalScript', lvl)
 
 	local player = game.Players.LocalPlayer
@@ -133,30 +113,8 @@ local function GEPUCIA_fake_script() -- lvl.LocalScript
 	end
 	
 end
-coroutine.wrap(GEPUCIA_fake_script)()
-local function LMZB_fake_script() -- quote.cycle 
-	local script = Instance.new('LocalScript', quote)
-
-	local textLabel = script.Parent  -- Reference to the TextLabel
-	local texts = {"“Talent is a pursued interest. Anything that you're willing to practice, you can do.” - Bob Ross", "“Be yourself; everyone else is already taken.” - Oscar Wilde", "“A room without books is like a body without a soul.” - Marcus Tullius Cicero ", "“Be who you are and say what you feel, because those who mind don't matter, and those who matter don't mind.” - Bernard M. Baruch "}  -- List of texts to cycle through
-	local textIndex = 1  -- Start with the first text
-	local waitTime = 60  -- Time to wait between changing text (in seconds)
-	
-	while true do
-		textLabel.Text = texts[textIndex]  -- Set the TextLabel's text to the current text in the list
-		textIndex = textIndex + 1  -- Move to the next text in the list
-	
-		-- If we've reached the end of the list, start over from the first text
-		if textIndex > #texts then
-			textIndex = 1
-		end
-	
-		wait(waitTime)  -- Wait before changing the text again
-	end
-	
-end
-coroutine.wrap(LMZB_fake_script)()
-local function VVCEJ_fake_script() -- Frame.lvlfarm 
+coroutine.wrap(NUIJVI_fake_script)()
+local function ZVCU_fake_script() -- Frame.lvlfarm 
 	local script = Instance.new('LocalScript', Frame)
 
 	local Players = game:GetService("Players")
@@ -215,7 +173,7 @@ local function VVCEJ_fake_script() -- Frame.lvlfarm
 			currentIndex = (currentIndex % #chestParts) + 1
 	
 			-- Add a delay between teleports
-			wait(0.01) -- Adjust the time as needed
+			wait(0.1) -- Adjust the time as needed
 		end
 	end
 	
@@ -230,8 +188,8 @@ local function VVCEJ_fake_script() -- Frame.lvlfarm
 	end
 	
 end
-coroutine.wrap(VVCEJ_fake_script)()
-local function NLIIYSU_fake_script() -- money.LocalScript 
+coroutine.wrap(ZVCU_fake_script)()
+local function MGSLJFW_fake_script() -- money.LocalScript 
 	local script = Instance.new('LocalScript', money)
 
 	local player = game.Players.LocalPlayer
@@ -244,14 +202,14 @@ local function NLIIYSU_fake_script() -- money.LocalScript
 	end
 	
 end
-coroutine.wrap(NLIIYSU_fake_script)()
-local function TRAC_fake_script() -- Frame.antiafk 
+coroutine.wrap(MGSLJFW_fake_script)()
+local function ZBLBHU_fake_script() -- Frame.antiafk 
 	local script = Instance.new('LocalScript', Frame)
 
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/NoTwistedHere/Roblox/main/AntiAFK.lua"))()
 end
-coroutine.wrap(TRAC_fake_script)()
-local function RAMQ_fake_script() -- Frame.fpsboost 
+coroutine.wrap(ZBLBHU_fake_script)()
+local function RCSFQTZ_fake_script() -- Frame.fpsboost 
 	local script = Instance.new('LocalScript', Frame)
 
 	--[[
@@ -308,22 +266,76 @@ local function RAMQ_fake_script() -- Frame.fpsboost
 	}
 	loadstring(game:HttpGet("https://pastebin.com/raw/4Zcpfp32"))()
 end
-coroutine.wrap(RAMQ_fake_script)()
-local function NIZOZH_fake_script() -- Frame.firetouchinterestforchests 
+coroutine.wrap(RCSFQTZ_fake_script)()
+local function XTWO_fake_script() -- Frame.automastery 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
-	local npc = game.workspace:WaitForChild("Characters")
+	local npc = game.Workspace:WaitForChild("Characters")
 	local Remote = game:GetService("ReplicatedStorage"):WaitForChild("ALLREMBINDS"):WaitForChild("MainRemoteEvent")
 	local fruits = localPlayer.PlayerStats.Tools
-	local chest = game.workspace.World.Chests
+	local chest = game.Workspace.World.Chests
 	
 	while true do
-		for _, v in ipairs(chest:GetChildren()) do
-			firetouchinterest(localPlayer.Character.HumanoidRootPart, v, 0)
-			firetouchinterest(localPlayer.Character.HumanoidRootPart, v, 1)
+		for _, v in ipairs(fruits:GetChildren()) do
+			Remote:FireServer("EMMFOSS__!ZCNSJNXCSDWQSANBX", "GiveMasteryEXPTO__Smthh", {localPlayer, v.Name, 99999999, true})
 		end
 		wait(1) -- Adjust the wait time to control how frequently the loop repeats (in seconds)
 	end
+	
 end
-coroutine.wrap(NIZOZH_fake_script)()
+coroutine.wrap(XTWO_fake_script)()
+local function TEDL_fake_script() -- Frame.enableken 
+	local script = Instance.new('LocalScript', Frame)
+
+	local localPlayer = game:GetService("Players").LocalPlayer
+	local npc = game.Workspace:WaitForChild("Characters")
+	local Remote = game:GetService("ReplicatedStorage"):WaitForChild("ALLREMBINDS"):WaitForChild("MainRemoteEvent")
+	local fruits = localPlayer.PlayerStats.Tools
+	local chest = game.Workspace.World.Chests
+	
+	-- Corrected this line to properly reference PlayerStats
+	local InstinctWorking = localPlayer.PlayerStats:WaitForChild("InstinctWorking")
+	
+	-- Set the value of InstinctWorking to true
+	InstinctWorking.Value = true
+	
+end
+coroutine.wrap(TEDL_fake_script)()
+local function TYSWK_fake_script() -- Frame.enablebuso 
+	local script = Instance.new('LocalScript', Frame)
+
+	local localPlayer = game:GetService("Players").LocalPlayer
+	local npc = game.Workspace:WaitForChild("Characters")
+	local Remote = game:GetService("ReplicatedStorage"):WaitForChild("ALLREMBINDS"):WaitForChild("MainRemoteEvent")
+	local fruits = localPlayer.PlayerStats.Tools
+	local chest = game.Workspace.World.Chests
+	
+	-- Corrected this line to reference localPlayer.PlayerStats for Aura
+	local AuraFolder = localPlayer.PlayerStats:WaitForChild("Aura")
+	local AuraEnabled = AuraFolder:WaitForChild("AuraEnabled") -- AuraEnabled is a BoolValue
+	local AuraWorking = localPlayer.PlayerStats:WaitForChild("AuraWorking") -- AuraWorking is a BoolValue
+	
+	-- Corrected this line to reference CharacterStats under localPlayer
+	local StopWorkThings = localPlayer:WaitForChild("CharacterStats"):WaitForChild("StopWorkThings")
+	
+	-- Corrected this line to reference BusoHakiWork properly
+	local BusoHakiWork = StopWorkThings:WaitForChild("BusoHakiWork")
+	
+	-- Check if BusoHakiWork is false, then set it to true
+	if BusoHakiWork.Value == false then
+		BusoHakiWork.Value = true
+	end
+	
+	-- Check if AuraEnabled is false, then set it to true
+	if AuraEnabled.Value == false then
+		AuraEnabled.Value = true
+	end
+	
+	-- Check if AuraWorking is false, then set it to true
+	if AuraWorking.Value == false then
+		AuraWorking.Value = true
+	end
+	
+end
+coroutine.wrap(TYSWK_fake_script)()
