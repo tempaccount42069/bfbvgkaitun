@@ -38,10 +38,12 @@ ss:Dropdown("Select Tool",tool_table,function(SelectedOption)
 SelectedWeapon = SelectedOption
 end)
 
+local AutoFarmActive = false  -- Global flag to control the Auto Chest Farm loop
+
 ss:Toggle("Auto Chest Farm", function(t)
     local Players = game:GetService("Players")
     local player = Players.LocalPlayer
-    local AutoFarmActive = t -- Tracks whether Auto Chest Farm is active or not
+    AutoFarmActive = t  -- Set AutoFarmActive to the toggle state
 
     -- Function to teleport the player cyclically through all chests
     local function teleportToChestsInCycle()
@@ -73,7 +75,7 @@ ss:Toggle("Auto Chest Farm", function(t)
 
         -- Start cycling through chests
         local currentIndex = 1
-        while AutoFarmActive do
+        while AutoFarmActive do  -- Check if AutoFarmActive is still true
             -- Wait until the player has a valid character
             while not player.Character or not player.Character.PrimaryPart do
                 wait()
@@ -94,32 +96,31 @@ ss:Toggle("Auto Chest Farm", function(t)
             -- Move to the next chest, cycling back to the first if at the end
             currentIndex = (currentIndex % #chestParts) + 1
 
-            -- Add a delay between teleports to ensure the player doesn't teleport too quickly
-            wait(0.01) -- Adjust the time as needed
+            -- Add a delay between teleports
+            wait(0.01)  -- Adjust the time as needed
         end
     end
 
-    -- Toggle handling: start or stop the teleportation loop
+    -- Start or stop the teleportation cycle based on the toggle state
     if t then
         -- Start the teleportation loop in a coroutine
         spawn(function()
             teleportToChestsInCycle()
         end)
     else
-        AutoFarmActive = false -- Stop the teleportation loop when toggled off
+        AutoFarmActive = false  -- Stop the teleportation loop by setting the flag to false
     end
 
     -- Restart the teleportation cycle when the player's character is reset
     player.CharacterAdded:Connect(function()
-        if t then
-            -- Only start teleporting if the toggle is still active
+        if AutoFarmActive then  -- Only start teleporting if AutoFarmActive is still true
             spawn(function()
                 teleportToChestsInCycle()
             end)
         end
     end)
-
 end)
+
 
 
 ss:Dropdown("Mobs To Farm",Npc_Table,function(t)
