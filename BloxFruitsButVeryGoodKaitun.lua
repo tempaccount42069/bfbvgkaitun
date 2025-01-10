@@ -101,21 +101,28 @@ UITextSizeConstraint_4.MaxTextSize = 50
 
 -- Scripts:
 
-local function VNMRGHE_fake_script() -- lvl.LocalScript 
+local function HCNSD_fake_script() -- lvl.upd 
 	local script = Instance.new('LocalScript', lvl)
 
 	local player = game.Players.LocalPlayer
-	local levelTextLabel = player.PlayerGui:WaitForChild("Main"):WaitForChild("Level")
+	local playerGui = player:WaitForChild("PlayerGui")
+	local levelTextLabel = playerGui:WaitForChild("Main"):WaitForChild("Level")
 	local targetTextLabel = script.Parent  -- The TextLabel that should be updated
 	
-	while true do
+	-- Function to update targetTextLabel text
+	local function updateLevelText()
 		targetTextLabel.Text = levelTextLabel.Text  -- Set the target label's Text to the level text
-		wait(0.01)  -- Wait a short time before updating again (you can adjust this for performance)
 	end
 	
+	-- Update the text whenever the levelTextLabel's text changes
+	levelTextLabel:GetPropertyChangedSignal("Text"):Connect(updateLevelText)
+	
+	-- Optionally, you can call it once initially to synchronize the labels
+	updateLevelText()
+	
 end
-coroutine.wrap(VNMRGHE_fake_script)()
-local function LRXUM_fake_script() -- Frame.ChestFire 
+coroutine.wrap(HCNSD_fake_script)()
+local function XYTSKNX_fake_script() -- Frame.ChestFire 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -133,28 +140,35 @@ local function LRXUM_fake_script() -- Frame.ChestFire
 	end
 	
 end
-coroutine.wrap(LRXUM_fake_script)()
-local function OMLDEN_fake_script() -- money.LocalScript 
+coroutine.wrap(XYTSKNX_fake_script)()
+local function ZRIJCO_fake_script() -- money.upd 
 	local script = Instance.new('LocalScript', money)
 
 	local player = game.Players.LocalPlayer
-	local levelTextLabel = player.PlayerGui:WaitForChild("Main"):WaitForChild("Beli")
+	local playerGui = player:WaitForChild("PlayerGui")
+	local levelTextLabel = playerGui:WaitForChild("Main"):WaitForChild("Beli")
 	local targetTextLabel = script.Parent  -- The TextLabel that should be updated
 	
-	while true do
-		targetTextLabel.Text = levelTextLabel.Text  -- Set the target label's Text to the level text
-		wait(0.01)  -- Wait a short time before updating again (you can adjust this for performance)
+	-- Function to update targetTextLabel's text
+	local function updateBeliText()
+		targetTextLabel.Text = levelTextLabel.Text  -- Set the target label's Text to the Beli text
 	end
 	
+	-- Update the targetTextLabel whenever the levelTextLabel's text changes
+	levelTextLabel:GetPropertyChangedSignal("Text"):Connect(updateBeliText)
+	
+	-- Optionally, you can call it once initially to synchronize the labels
+	updateBeliText()
+	
 end
-coroutine.wrap(OMLDEN_fake_script)()
-local function WVBONGC_fake_script() -- Frame.antiafk 
+coroutine.wrap(ZRIJCO_fake_script)()
+local function YOQXSVH_fake_script() -- Frame.antiafk 
 	local script = Instance.new('LocalScript', Frame)
 
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/NoTwistedHere/Roblox/main/AntiAFK.lua"))()
 end
-coroutine.wrap(WVBONGC_fake_script)()
-local function WSJAL_fake_script() -- Frame.fpsboost 
+coroutine.wrap(YOQXSVH_fake_script)()
+local function NSJD_fake_script() -- Frame.fpsboost 
 	local script = Instance.new('LocalScript', Frame)
 
 	_G.Ignore = {}
@@ -208,8 +222,8 @@ local function WSJAL_fake_script() -- Frame.fpsboost
 	}
 	loadstring(game:HttpGet("https://pastebin.com/raw/4Zcpfp32"))()
 end
-coroutine.wrap(WSJAL_fake_script)()
-local function OQPB_fake_script() -- Frame.givemastery 
+coroutine.wrap(NSJD_fake_script)()
+local function PRBNLX_fake_script() -- Frame.givemastery 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -226,8 +240,8 @@ local function OQPB_fake_script() -- Frame.givemastery
 	end
 	
 end
-coroutine.wrap(OQPB_fake_script)()
-local function FZIG_fake_script() -- Frame.FastAttack 
+coroutine.wrap(PRBNLX_fake_script)()
+local function XGNR_fake_script() -- Frame.FastAttack 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -242,11 +256,11 @@ local function FZIG_fake_script() -- Frame.FastAttack
 				Remote:FireServer("EMMFOSS__!ZCNSJNXCSDWQSANBX", "Main_DamgeR___", {character, {Using = "Combat", Damge = 9999, FromPlayer = localPlayer}})
 			end
 		end
-		wait(1)  -- Adjust the wait time as needed (in seconds)
+		wait(0.5)  -- Adjust the wait time as needed (in seconds)
 	end
 end
-coroutine.wrap(FZIG_fake_script)()
-local function GHKBGZ_fake_script() -- Frame.AutoBuso 
+coroutine.wrap(XGNR_fake_script)()
+local function KUJV_fake_script() -- Frame.AutoBuso 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -281,8 +295,8 @@ local function GHKBGZ_fake_script() -- Frame.AutoBuso
 		AuraWorking.Value = true
 	end
 end
-coroutine.wrap(GHKBGZ_fake_script)()
-local function KFWSSQA_fake_script() -- Frame.NPCTeleport 
+coroutine.wrap(KUJV_fake_script)()
+local function UFWJHPF_fake_script() -- Frame.NPCTeleport 
 	local script = Instance.new('LocalScript', Frame)
 
 	local Players = game:GetService("Players")
@@ -335,7 +349,7 @@ local function KFWSSQA_fake_script() -- Frame.NPCTeleport
 					local offset = Vector3.new(0, 50, 0)
 					local targetPosition = humanoidRootPart.Position + offset
 	
-					-- Teleport the player to that position
+					-- Teleport the player to that position, keeping the character in the air
 					player.Character:SetPrimaryPartCFrame(CFrame.new(targetPosition))
 				end
 			end
@@ -364,8 +378,8 @@ local function KFWSSQA_fake_script() -- Frame.NPCTeleport
 	end
 	
 end
-coroutine.wrap(KFWSSQA_fake_script)()
-local function PWOCWV_fake_script() -- Frame.autoequip 
+coroutine.wrap(UFWJHPF_fake_script)()
+local function RVTGI_fake_script() -- Frame.autoequip 
 	local script = Instance.new('LocalScript', Frame)
 
 	local Players = game:GetService("Players")
@@ -377,12 +391,17 @@ local function PWOCWV_fake_script() -- Frame.autoequip
 		while true do
 			-- Wait until the player has items in their backpack
 			if #backpack:GetChildren() > 0 then
-				local firstItem = backpack:GetChildren()[1] -- Get the first item in the backpack
+				-- Get the first item in the backpack
+				local items = backpack:GetChildren()
+				table.sort(items, function(a, b) return a.Name < b.Name end) -- Optionally sort to get a consistent order
+				local firstItem = items[1]  -- Get the first item after sorting
 	
 				-- Check if the first item is a valid tool (assuming tools are used as items)
 				if firstItem:IsA("Tool") and not player.Character:FindFirstChild(firstItem.Name) then
 					-- Equip the tool to the player's character
-					player.Character.Humanoid:EquipTool(firstItem)
+					if player.Character and player.Character:FindFirstChild("Humanoid") then
+						player.Character.Humanoid:EquipTool(firstItem)
+					end
 				end
 			end
 	
@@ -394,4 +413,4 @@ local function PWOCWV_fake_script() -- Frame.autoequip
 	autoEquipFirstItem()
 	
 end
-coroutine.wrap(PWOCWV_fake_script)()
+coroutine.wrap(RVTGI_fake_script)()
