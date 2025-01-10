@@ -40,7 +40,7 @@ end)
 
 local AutoFarmActive = false  -- Global flag to control the Auto Chest Farm loop
 
-ss:Toggle("Auto Chest Farm", function(t)
+ss:Toggle("Auto Chest Farm (faster but may lag)", function(t)
     local Players = game:GetService("Players")
     local player = Players.LocalPlayer
     AutoFarmActive = t  -- Set AutoFarmActive to the toggle state
@@ -98,6 +98,87 @@ ss:Toggle("Auto Chest Farm", function(t)
 
             -- Add a delay between teleports
             wait(0.01)  -- Adjust the time as needed
+        end
+    end
+
+    -- Start or stop the teleportation cycle based on the toggle state
+    if t then
+        -- Start the teleportation loop in a coroutine
+        spawn(function()
+            teleportToChestsInCycle()
+        end)
+    else
+        AutoFarmActive = false  -- Stop the teleportation loop by setting the flag to false
+    end
+
+    -- Restart the teleportation cycle when the player's character is reset
+    player.CharacterAdded:Connect(function()
+        if AutoFarmActive then  -- Only start teleporting if AutoFarmActive is still true
+            spawn(function()
+                teleportToChestsInCycle()
+            end)
+        end
+    end)
+end)  -- Global flag to control the Auto Chest Farm loop
+
+ss:Toggle("Slower Auto Chest Farm (use if you lag)", function(t)
+    local Players = game:GetService("Players")
+    local player = Players.LocalPlayer
+    AutoFarmActive = t  -- Set AutoFarmActive to the toggle state
+
+    -- Function to teleport the player cyclically through all chests
+    local function teleportToChestsInCycle()
+        -- Ensure "World.Chests" exists
+        local worldFolder = game.Workspace:FindFirstChild("World")
+        if not worldFolder then
+            warn("World folder not found in Workspace")
+            return
+        end
+
+        local chestsFolder = worldFolder:FindFirstChild("Chests")
+        if not chestsFolder then
+            warn("Chests folder not found in Workspace.World")
+            return
+        end
+
+        -- Collect all chest parts
+        local chestParts = {}
+        for _, child in ipairs(chestsFolder:GetChildren()) do
+            if child:IsA("BasePart") and (child.Name == "Chest1" or child.Name == "Chest2" or child.Name == "Chest3") then
+                table.insert(chestParts, child)
+            end
+        end
+
+        if #chestParts == 0 then
+            warn("No valid chests (Chest1, Chest2, Chest3) found in 'World.Chests'")
+            return
+        end
+
+        -- Start cycling through chests
+        local currentIndex = 1
+        while AutoFarmActive do  -- Check if AutoFarmActive is still true
+            -- Wait until the player has a valid character
+            while not player.Character or not player.Character.PrimaryPart do
+                wait()
+            end
+
+            local chest = chestParts[currentIndex]
+            if player.Character and player.Character.PrimaryPart then
+                local primaryPart = player.Character.PrimaryPart
+
+                -- Calculate offset above the chest
+                local offset = Vector3.new(0, primaryPart.Size.Y / 2 + 2, 0) -- Add half the height of the character + 2 studs
+                local targetPosition = chest.Position + offset
+                player.Character:SetPrimaryPartCFrame(CFrame.new(targetPosition))
+            else
+                warn("Player's character or PrimaryPart is missing")
+            end
+
+            -- Move to the next chest, cycling back to the first if at the end
+            currentIndex = (currentIndex % #chestParts) + 1
+
+            -- Add a delay between teleports
+            wait(0.92)  -- Adjust the time as needed
         end
     end
 
