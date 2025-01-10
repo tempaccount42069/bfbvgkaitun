@@ -21,6 +21,7 @@ ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Frame.Parent = ScreenGui
 Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BackgroundTransparency = 0.300
 Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Frame.BorderSizePixel = 0
 Frame.ClipsDescendants = true
@@ -53,7 +54,7 @@ yes.BorderSizePixel = 0
 yes.Position = UDim2.new(0, 0, 0.156899825, 0)
 yes.Size = UDim2.new(1, 0, 0.0945179611, 0)
 yes.Font = Enum.Font.SourceSansSemibold
-yes.Text = "Made by kitkat2iskewl :)"
+yes.Text = "Made by kitkat2iskewl"
 yes.TextColor3 = Color3.fromRGB(255, 255, 255)
 yes.TextScaled = true
 yes.TextSize = 14.000
@@ -72,7 +73,7 @@ lvl.Position = UDim2.new(0, 0, 0.274102092, 0)
 lvl.Size = UDim2.new(1, 0, 0.0945179611, 0)
 lvl.Font = Enum.Font.SourceSansSemibold
 lvl.Text = "Could not get level (Reason: idk bro)"
-lvl.TextColor3 = Color3.fromRGB(0, 238, 255)
+lvl.TextColor3 = Color3.fromRGB(0, 221, 255)
 lvl.TextScaled = true
 lvl.TextSize = 14.000
 lvl.TextWrapped = true
@@ -100,7 +101,7 @@ UITextSizeConstraint_4.MaxTextSize = 50
 
 -- Scripts:
 
-local function CCYOIFA_fake_script() -- lvl.LocalScript 
+local function OPLK_fake_script() -- lvl.LocalScript 
 	local script = Instance.new('LocalScript', lvl)
 
 	local player = game.Players.LocalPlayer
@@ -113,83 +114,27 @@ local function CCYOIFA_fake_script() -- lvl.LocalScript
 	end
 	
 end
-coroutine.wrap(CCYOIFA_fake_script)()
-local function ESDYNNO_fake_script() -- Frame.lvlfarm 
+coroutine.wrap(OPLK_fake_script)()
+local function AKYM_fake_script() -- Frame.ChestFire 
 	local script = Instance.new('LocalScript', Frame)
 
-	local Players = game:GetService("Players")
-	local player = Players.LocalPlayer
+	local localPlayer = game:GetService("Players").LocalPlayer
+	local npc = game.Workspace:WaitForChild("Characters")
+	local Remote = game:GetService("ReplicatedStorage"):WaitForChild("ALLREMBINDS"):WaitForChild("MainRemoteEvent")
+	local fruits = localPlayer.PlayerStats.Tools
+	local chest = game.Workspace.World.Chests
 	
-	-- Function to teleport the player cyclically through all chests
-	local function teleportToChestsInCycle()
-		-- Ensure "World.Chests" exists
-		local worldFolder = game.Workspace:FindFirstChild("World")
-		if not worldFolder then
-			warn("World folder not found in Workspace")
-			return
+	while true do
+		for _, v in ipairs(chest:GetChildren()) do
+			firetouchinterest(localPlayer.Character.HumanoidRootPart, v, 0)
+			firetouchinterest(localPlayer.Character.HumanoidRootPart, v, 1)
 		end
-	
-		local chestsFolder = worldFolder:FindFirstChild("Chests")
-		if not chestsFolder then
-			warn("Chests folder not found in Workspace.World")
-			return
-		end
-	
-		-- Collect all chest parts
-		local chestParts = {}
-		for _, child in ipairs(chestsFolder:GetChildren()) do
-			if child:IsA("BasePart") and (child.Name == "Chest1" or child.Name == "Chest2" or child.Name == "Chest3") then
-				table.insert(chestParts, child)
-			end
-		end
-	
-		if #chestParts == 0 then
-			warn("No valid chests (Chest1, Chest2, Chest3) found in 'World.Chests'")
-			return
-		end
-	
-		-- Start cycling through chests
-		local currentIndex = 1
-	
-		while true do
-			-- Wait until the player has a valid character
-			while not player.Character or not player.Character.PrimaryPart do
-				wait()
-			end
-	
-			local chest = chestParts[currentIndex]
-			if player.Character and player.Character.PrimaryPart then
-				local primaryPart = player.Character.PrimaryPart
-	
-				-- Calculate offset above the chest
-				local offset = Vector3.new(0, primaryPart.Size.Y / 2 + 2, 0) -- Add half the height of the character + 2 studs
-				local targetPosition = chest.Position + offset
-				player.Character:SetPrimaryPartCFrame(CFrame.new(targetPosition))
-			else
-				warn("Player's character or PrimaryPart is missing")
-			end
-	
-			-- Move to the next chest, cycling back to the first if at the end
-			currentIndex = (currentIndex % #chestParts) + 1
-	
-			-- Add a delay between teleports
-			wait(0.01) -- Adjust the time as needed
-		end
-	end
-	
-	-- Restart the teleportation cycle when the player's character is reset
-	player.CharacterAdded:Connect(function()
-		spawn(teleportToChestsInCycle) -- Start the teleportation loop in a coroutine
-	end)
-	
-	-- Start the teleportation cycle when the script runs
-	if player.Character then
-		spawn(teleportToChestsInCycle)
+		wait(0.1)  -- Adjust the wait time as needed (in seconds)
 	end
 	
 end
-coroutine.wrap(ESDYNNO_fake_script)()
-local function WSUBI_fake_script() -- money.LocalScript 
+coroutine.wrap(AKYM_fake_script)()
+local function MLQW_fake_script() -- money.LocalScript 
 	local script = Instance.new('LocalScript', money)
 
 	local player = game.Players.LocalPlayer
@@ -202,19 +147,16 @@ local function WSUBI_fake_script() -- money.LocalScript
 	end
 	
 end
-coroutine.wrap(WSUBI_fake_script)()
-local function EXZJYRY_fake_script() -- Frame.antiafk 
+coroutine.wrap(MLQW_fake_script)()
+local function SGRJ_fake_script() -- Frame.antiafk 
 	local script = Instance.new('LocalScript', Frame)
 
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/NoTwistedHere/Roblox/main/AntiAFK.lua"))()
 end
-coroutine.wrap(EXZJYRY_fake_script)()
-local function RQOMHD_fake_script() -- Frame.fpsboost 
+coroutine.wrap(SGRJ_fake_script)()
+local function TGZWNF_fake_script() -- Frame.fpsboost 
 	local script = Instance.new('LocalScript', Frame)
 
-	--[[
-		WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
-	]]
 	_G.Ignore = {}
 	_G.Settings = {
 		Players = {
@@ -266,8 +208,8 @@ local function RQOMHD_fake_script() -- Frame.fpsboost
 	}
 	loadstring(game:HttpGet("https://pastebin.com/raw/4Zcpfp32"))()
 end
-coroutine.wrap(RQOMHD_fake_script)()
-local function EGNZBHM_fake_script() -- Frame.automastery 
+coroutine.wrap(TGZWNF_fake_script)()
+local function JSUMRC_fake_script() -- Frame.givemastery 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -280,12 +222,12 @@ local function EGNZBHM_fake_script() -- Frame.automastery
 		for _, v in ipairs(fruits:GetChildren()) do
 			Remote:FireServer("EMMFOSS__!ZCNSJNXCSDWQSANBX", "GiveMasteryEXPTO__Smthh", {localPlayer, v.Name, 99999999, true})
 		end
-		wait(1) -- Adjust the wait time to control how frequently the loop repeats (in seconds)
+		wait(1)  -- Adjust the wait time as needed (in seconds)
 	end
 	
 end
-coroutine.wrap(EGNZBHM_fake_script)()
-local function UNYMITL_fake_script() -- Frame.enableken 
+coroutine.wrap(JSUMRC_fake_script)()
+local function WDQUFK_fake_script() -- Frame.FastAttack 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -294,15 +236,17 @@ local function UNYMITL_fake_script() -- Frame.enableken
 	local fruits = localPlayer.PlayerStats.Tools
 	local chest = game.Workspace.World.Chests
 	
-	-- Corrected this line to properly reference PlayerStats
-	local InstinctWorking = localPlayer.PlayerStats:WaitForChild("InstinctWorking")
-	
-	-- Set the value of InstinctWorking to true
-	InstinctWorking.Value = true
-	
+	while true do
+		for _, character in pairs(npc:GetChildren()) do
+			if character:IsA("Model") and character:FindFirstChild("Humanoid") and character.Name ~= localPlayer.Name then
+				Remote:FireServer("EMMFOSS__!ZCNSJNXCSDWQSANBX", "Main_DamgeR___", {character, {Using = "Combat", Damge = 9999, FromPlayer = localPlayer}})
+			end
+		end
+		wait(1)  -- Adjust the wait time as needed (in seconds)
+	end
 end
-coroutine.wrap(UNYMITL_fake_script)()
-local function PYFHO_fake_script() -- Frame.enablebuso 
+coroutine.wrap(WDQUFK_fake_script)()
+local function NUOF_fake_script() -- Frame.AutoBuso 
 	local script = Instance.new('LocalScript', Frame)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -336,6 +280,80 @@ local function PYFHO_fake_script() -- Frame.enablebuso
 	if AuraWorking.Value == false then
 		AuraWorking.Value = true
 	end
+end
+coroutine.wrap(NUOF_fake_script)()
+local function ZQKS_fake_script() -- Frame.NPCTeleport 
+	local script = Instance.new('LocalScript', Frame)
+
+	local Players = game:GetService("Players")
+	local player = Players.LocalPlayer
+	
+	-- Function to teleport the player cyclically through all dummies
+	local function teleportToDummiesInCycle()
+		-- Ensure "Characters" exists
+		local charactersFolder = game.Workspace:FindFirstChild("Characters")
+		if not charactersFolder then
+			warn("Characters folder not found in Workspace")
+			return
+		end
+	
+		-- Collect all dummy models (dummey1 to dummey11)
+		local dummyModels = {}
+		for i = 1, 11 do
+			local dummyName = "dummey" .. i
+			local dummy = charactersFolder:FindFirstChild(dummyName)
+			if dummy and dummy:FindFirstChild("HumanoidRootPart") then
+				table.insert(dummyModels, dummy)
+			end
+		end
+	
+		if #dummyModels == 0 then
+			warn("No valid dummies found in 'Workspace.Characters'")
+			return
+		end
+	
+		-- Start cycling through dummies
+		local currentIndex = 1
+	
+		while true do
+			-- Wait until the player has a valid character
+			while not player.Character or not player.Character.PrimaryPart do
+				wait()
+			end
+	
+			local dummy = dummyModels[currentIndex]
+			if player.Character and player.Character.PrimaryPart then
+				local primaryPart = player.Character.PrimaryPart
+	
+				-- Ensure the dummy has a HumanoidRootPart
+				local humanoidRootPart = dummy:FindFirstChild("HumanoidRootPart")
+				if humanoidRootPart then
+					-- Calculate offset 50 studs above the HumanoidRootPart
+					local offset = Vector3.new(0, 50, 0) -- 50 studs above the HumanoidRootPart
+					local targetPosition = humanoidRootPart.Position + offset
+					player.Character:SetPrimaryPartCFrame(CFrame.new(targetPosition))
+				end
+			else
+				warn("Player's character or PrimaryPart is missing")
+			end
+	
+			-- Move to the next dummy, cycling back to the first if at the end
+			currentIndex = (currentIndex % #dummyModels) + 1
+	
+			-- Add a delay between teleports
+			wait(0.5) -- Adjust the time as needed
+		end
+	end
+	
+	-- Restart the teleportation cycle when the player's character is reset
+	player.CharacterAdded:Connect(function()
+		spawn(teleportToDummiesInCycle) -- Start the teleportation loop in a coroutine
+	end)
+	
+	-- Start the teleportation cycle when the script runs
+	if player.Character then
+		spawn(teleportToDummiesInCycle)
+	end
 	
 end
-coroutine.wrap(PYFHO_fake_script)()
+coroutine.wrap(ZQKS_fake_script)()
