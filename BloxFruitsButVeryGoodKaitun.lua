@@ -1,4 +1,7 @@
--- W Rewrite
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
 
 local kaitun = Instance.new("ScreenGui")
 local main = Instance.new("Frame")
@@ -94,19 +97,19 @@ UITextSizeConstraint_3.MaxTextSize = 48
 
 -- Scripts:
 
-local function TGMLDL_fake_script() -- Scripts.AntiAFK 
+local function EDXVK_fake_script() -- Scripts.AntiAFK 
 	local script = Instance.new('LocalScript', Scripts)
 
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/NoTwistedHere/Roblox/main/AntiAFK.lua"))()
 end
-coroutine.wrap(TGMLDL_fake_script)()
-local function ZSNE_fake_script() -- Scripts.FPSBoost 
+coroutine.wrap(EDXVK_fake_script)()
+local function UCIWIG_fake_script() -- Scripts.FPSBoost 
 	local script = Instance.new('LocalScript', Scripts)
 
 	loadstring(game:HttpGet("https://pastebin.com/raw/4Zcpfp32"))()
 end
-coroutine.wrap(ZSNE_fake_script)()
-local function JYXRN_fake_script() -- Scripts.ChestFarm 
+coroutine.wrap(UCIWIG_fake_script)()
+local function PDCRMTE_fake_script() -- Scripts.ChestFarm 
 	local script = Instance.new('LocalScript', Scripts)
 
 	local Players = game:GetService("Players")
@@ -175,7 +178,7 @@ local function JYXRN_fake_script() -- Scripts.ChestFarm
 			currentIndex = (currentIndex % #chestParts) + 1
 	
 			-- Add a delay between teleports
-			wait(0.1) -- Adjust the time as needed
+			wait(0.55) -- Adjust the time as needed
 		end
 	end
 	
@@ -183,8 +186,8 @@ local function JYXRN_fake_script() -- Scripts.ChestFarm
 	teleportToChestsInCycle()
 	
 end
-coroutine.wrap(JYXRN_fake_script)()
-local function FWHS_fake_script() -- Scripts.KillNPCS 
+coroutine.wrap(PDCRMTE_fake_script)()
+local function DCZBKL_fake_script() -- Scripts.KillNPCS 
 	local script = Instance.new('LocalScript', Scripts)
 
 	local Players = game:GetService("Players")
@@ -201,8 +204,8 @@ local function FWHS_fake_script() -- Scripts.KillNPCS
 	end
 	
 end
-coroutine.wrap(FWHS_fake_script)()
-local function NLALZIX_fake_script() -- Scripts.MasteryFarm 
+coroutine.wrap(DCZBKL_fake_script)()
+local function BBGR_fake_script() -- Scripts.MasteryFarm 
 	local script = Instance.new('LocalScript', Scripts)
 
 	local localPlayer = game:GetService("Players").LocalPlayer
@@ -218,8 +221,8 @@ local function NLALZIX_fake_script() -- Scripts.MasteryFarm
 		wait(10) -- Add a slight delay to prevent excessive strain on the server
 	end
 end
-coroutine.wrap(NLALZIX_fake_script)()
-local function HAODU_fake_script() -- Scripts.Music 
+coroutine.wrap(BBGR_fake_script)()
+local function BZILI_fake_script() -- Scripts.Music 
 	local script = Instance.new('LocalScript', Scripts)
 
 	-- Reference to the TextButton and Sound
@@ -261,4 +264,16 @@ local function HAODU_fake_script() -- Scripts.Music
 	button.MouseButton1Click:Connect(toggleSound)
 	
 end
-coroutine.wrap(HAODU_fake_script)()
+coroutine.wrap(BZILI_fake_script)()
+local function VOQFLZ_fake_script() -- Scripts.DestroySounds 
+	local script = Instance.new('LocalScript', Scripts)
+
+	local soundsFolder = game.ReplicatedStorage:FindFirstChild("Sounds")
+	if soundsFolder then
+		soundsFolder:Destroy()
+	else
+		warn("Sounds folder not found in ReplicatedStorage")
+	end
+	
+end
+coroutine.wrap(VOQFLZ_fake_script)()
