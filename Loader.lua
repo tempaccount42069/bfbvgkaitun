@@ -12,6 +12,10 @@ local targetGameIDs = {
         -- Code for Game 3
         loadstring(game:HttpGet("https://raw.githubusercontent.com/tempaccount42069/bfbvgkaitun/refs/heads/main/BloxFruitsButVeryGood.lua"))()
     end,
+    [74996439416357] = function()
+        -- Code for Game 3
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/tempaccount42069/bfbvgkaitun/refs/heads/main/BloxFruitsButVeryGood.lua"))()
+    end,
     [125355177832974] = function()
         -- Code for Game 2
         loadstring(game:HttpGet("https://raw.githubusercontent.com/tempaccount42069/bfbvgkaitun/refs/heads/main/BloxFruitsButVeryGood.lua"))()
@@ -24,6 +28,7 @@ local targetGameIDs = {
         -- Code for Game 2
         loadstring(game:HttpGet("https://raw.githubusercontent.com/tempaccount42069/bfbvgkaitun/refs/heads/main/BloxFruits.lua"))()
     end
+    
 }
 
 -- Get the current game ID
