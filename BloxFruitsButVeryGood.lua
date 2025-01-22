@@ -16,7 +16,7 @@ local function autoAttack()
                 Remote:FireServer(
                     "EMMFOSS__!ZCNSJNXCSDWQSANBX", 
                     "Main_DamgeR___", 
-                    {character, {Using = "Combat", Damge = 9999, FromPlayer = localPlayer}}
+                    {character, {Using = "Combat", Damge = math.huge, FromPlayer = localPlayer}}
                 )
             end
         end
@@ -25,7 +25,7 @@ local function autoAttack()
 end
 
 -- UI Toggle for Auto Attack
-KillingCheats:CreateToggle("Auto Ez", function(value)
+KillingCheats:CreateToggle("Kill Aura (Players/NPCS)", function(value)
     autoAttackEnabled = value
     if autoAttackEnabled then
         task.spawn(autoAttack) -- Starts auto attack in a separate thread
