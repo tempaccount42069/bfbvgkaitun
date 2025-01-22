@@ -3,277 +3,169 @@
 
 -- Instances:
 
-local kaitun = Instance.new("ScreenGui")
-local main = Instance.new("Frame")
-local UICorner = Instance.new("UICorner")
+local kit = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
 local TextLabel = Instance.new("TextLabel")
-local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
-local TextLabel_2 = Instance.new("TextLabel")
-local UITextSizeConstraint_2 = Instance.new("UITextSizeConstraint")
-local bluebar = Instance.new("Frame")
-local Scripts = Instance.new("Folder")
-local ToggleMusic = Instance.new("TextButton")
-local UICorner_2 = Instance.new("UICorner")
-local UITextSizeConstraint_3 = Instance.new("UITextSizeConstraint")
 
 --Properties:
 
-kaitun.Name = "kaitun"
-kaitun.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-kaitun.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+kit.Name = "kit"
+kit.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+kit.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+kit.ResetOnSpawn = false
 
-main.Name = "main"
-main.Parent = kaitun
-main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-main.BorderColor3 = Color3.fromRGB(0, 0, 0)
-main.BorderSizePixel = 0
-main.Position = UDim2.new(0.155844152, 0, 0.0415647924, 0)
-main.Size = UDim2.new(0.687445879, 0, 0.129584357, 0)
+Frame.Parent = kit
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Size = UDim2.new(0, 749, 0, 541)
 
-UICorner.Parent = main
-
-TextLabel.Parent = main
+TextLabel.Parent = Frame
 TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.BackgroundTransparency = 1.000
 TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel.BorderSizePixel = 0
-TextLabel.Size = UDim2.new(1, 0, 0.471698076, 0)
+TextLabel.Position = UDim2.new(0.0213618167, 0, 0.0332717188, 0)
+TextLabel.Size = UDim2.new(0, 717, 0, 123)
 TextLabel.Font = Enum.Font.SourceSans
-TextLabel.Text = "KitKat Hub"
-TextLabel.TextColor3 = Color3.fromRGB(168, 251, 252)
+TextLabel.Text = "Made by kitkat2iskewl :)"
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel.TextScaled = true
-TextLabel.TextSize = 14.000
+TextLabel.TextSize = 50.000
 TextLabel.TextWrapped = true
-
-UITextSizeConstraint.Parent = TextLabel
-UITextSizeConstraint.MaxTextSize = 50
-
-TextLabel_2.Parent = main
-TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_2.BackgroundTransparency = 1.000
-TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel_2.BorderSizePixel = 0
-TextLabel_2.Position = UDim2.new(0, 0, 0.528301895, 0)
-TextLabel_2.Size = UDim2.new(1, 0, 0.471698076, 0)
-TextLabel_2.Font = Enum.Font.SourceSans
-TextLabel_2.Text = "Blox Fruits But Very Good | Kaitun"
-TextLabel_2.TextColor3 = Color3.fromRGB(168, 251, 252)
-TextLabel_2.TextScaled = true
-TextLabel_2.TextSize = 14.000
-TextLabel_2.TextWrapped = true
-
-UITextSizeConstraint_2.Parent = TextLabel_2
-UITextSizeConstraint_2.MaxTextSize = 50
-
-bluebar.Name = "bluebar"
-bluebar.Parent = main
-bluebar.BackgroundColor3 = Color3.fromRGB(170, 255, 255)
-bluebar.BorderColor3 = Color3.fromRGB(0, 0, 0)
-bluebar.BorderSizePixel = 0
-bluebar.Position = UDim2.new(0, 0, 0.471698105, 0)
-bluebar.Size = UDim2.new(1, 0, 0.0566037707, 0)
-
-Scripts.Name = "Scripts"
-Scripts.Parent = main
-
-ToggleMusic.Name = "ToggleMusic"
-ToggleMusic.Parent = main
-ToggleMusic.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-ToggleMusic.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ToggleMusic.BorderSizePixel = 0
-ToggleMusic.Position = UDim2.new(0, 0, 5.86792469, 0)
-ToggleMusic.Size = UDim2.new(1, 0, 0.452830166, 0)
-ToggleMusic.Font = Enum.Font.SourceSans
-ToggleMusic.Text = "Toggle Music"
-ToggleMusic.TextColor3 = Color3.fromRGB(168, 251, 252)
-ToggleMusic.TextScaled = true
-ToggleMusic.TextSize = 14.000
-ToggleMusic.TextWrapped = true
-
-UICorner_2.Parent = ToggleMusic
-
-UITextSizeConstraint_3.Parent = ToggleMusic
-UITextSizeConstraint_3.MaxTextSize = 48
 
 -- Scripts:
 
-local function EDXVK_fake_script() -- Scripts.AntiAFK 
-	local script = Instance.new('LocalScript', Scripts)
+local function TSTM_fake_script() -- Frame.npc 
+	local script = Instance.new('LocalScript', Frame)
 
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/NoTwistedHere/Roblox/main/AntiAFK.lua"))()
-end
-coroutine.wrap(EDXVK_fake_script)()
-local function UCIWIG_fake_script() -- Scripts.FPSBoost 
-	local script = Instance.new('LocalScript', Scripts)
-
-	loadstring(game:HttpGet("https://pastebin.com/raw/4Zcpfp32"))()
-end
-coroutine.wrap(UCIWIG_fake_script)()
-local function PDCRMTE_fake_script() -- Scripts.ChestFarm 
-	local script = Instance.new('LocalScript', Scripts)
-
-	local Players = game:GetService("Players")
-	local player = Players.LocalPlayer
-	local localPlayer = game:GetService("Players").LocalPlayer
-	local npc = workspace:WaitForChild("Characters")
-	local Remote = game:GetService("ReplicatedStorage"):WaitForChild("ALLREMBINDS"):WaitForChild("MainRemoteEvent")
-	local fruits = localPlayer.PlayerStats.Tools
-	local chest = workspace.World.Chests
+	-- List of dummy NPC names
+	local npcNames = {}
+	for i = 1, 12 do
+		table.insert(npcNames, "dummey" .. i)
+	end
 	
-	-- Function to teleport the player cyclically through all chests indefinitely
-	local function teleportToChestsInCycle()
-		-- Ensure "World.Chests" exists
-		local worldFolder = game.Workspace:FindFirstChild("World")
-		if not worldFolder then
-			warn("World folder not found in Workspace")
-			return
-		end
+	-- Height offset for teleportation
+	local teleportHeight = 40
 	
-		local chestsFolder = worldFolder:FindFirstChild("Chests")
-		if not chestsFolder then
-			warn("Chests folder not found in Workspace.World")
-			return
-		end
+	-- Get the player character
+	local player = game.Players.LocalPlayer
+	local character = player.Character or player.CharacterAdded:Wait()
+	local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
 	
-		-- Collect all chest parts
-		local chestParts = {}
-		for _, child in ipairs(chestsFolder:GetChildren()) do
-			if child:IsA("BasePart") and (child.Name == "Chest1" or child.Name == "Chest2" or child.Name == "Chest3") then
-				table.insert(chestParts, child)
-			end
-		end
+	-- Anti-gravity force to keep the player in the air
+	local bodyVelocity = Instance.new("BodyVelocity")
+	bodyVelocity.MaxForce = Vector3.new(0, math.huge, 0) -- Allow only vertical movement
+	bodyVelocity.Velocity = Vector3.new(0, 0, 0) -- No additional velocity
+	bodyVelocity.Parent = humanoidRootPart
 	
-		if #chestParts == 0 then
-			warn("No valid chests (Chest1, Chest2, Chest3) found in 'World.Chests'")
-			return
-		end
-	
-		-- Start cycling through chests
-		local currentIndex = 1
-		while true do
-			local chest = chestParts[currentIndex]
-	
-			if player.Character and player.Character.PrimaryPart then
-				local primaryPart = player.Character.PrimaryPart
-	
-				-- Calculate offset above the chest
-				local offset = Vector3.new(0, primaryPart.Size.Y / 2 + 2, 0) -- Add half the height of the character + 2 studs
-				local targetPosition = chest.Position + offset
-	
-				-- Use pcall to handle potential errors during teleportation
-				local success, errorMessage = pcall(function()
-					player.Character:SetPrimaryPartCFrame(CFrame.new(targetPosition))
-				end)
-	
-				if not success then
-					warn("Error teleporting player: " .. errorMessage)
-					return
+	-- Function to get NPC's position or last position before death
+	local function getNPCPosition(npc)
+		if npc and npc:IsA("Model") then
+			local humanoid = npc:FindFirstChildOfClass("Humanoid")
+			local rootPart = npc:FindFirstChild("HumanoidRootPart")
+			if humanoid and rootPart then
+				-- If alive, use current position
+				if humanoid.Health > 0 then
+					return rootPart.Position
+				else
+					-- Return last position before death
+					return rootPart.Position -- Adjust if you need other logic for "last position"
 				end
-			else
-				warn("Player's character or PrimaryPart is missing")
-				return
 			end
-	
-			-- Move to the next chest, cycling back to the first if at the end
-			currentIndex = (currentIndex % #chestParts) + 1
-	
-			-- Add a delay between teleports
-			wait(0.55) -- Adjust the time as needed
 		end
+		return nil
 	end
 	
-	-- Start teleporting when the script runs
-	teleportToChestsInCycle()
-	
-end
-coroutine.wrap(PDCRMTE_fake_script)()
-local function DCZBKL_fake_script() -- Scripts.KillNPCS 
-	local script = Instance.new('LocalScript', Scripts)
-
-	local Players = game:GetService("Players")
-	local localPlayer = Players.LocalPlayer
-	local npc = workspace:WaitForChild("Characters")
-	local Remote = game:GetService("ReplicatedStorage"):WaitForChild("ALLREMBINDS"):WaitForChild("MainRemoteEvent")
-	local fruits = localPlayer.PlayerStats.Tools
-	local chest = workspace.World.Chests
-	
-	for _, character in pairs(npc:GetChildren()) do
-		if character:IsA("Model") and character:FindFirstChild("Humanoid") and character.Name ~= localPlayer.Name then
-			Remote:FireServer("EMMFOSS__!ZCNSJNXCSDWQSANBX", "Main_DamgeR___", {character, {Using = "Combat", Damge = 9999, FromPlayer = localPlayer}})
-		end
-	end
-	
-end
-coroutine.wrap(DCZBKL_fake_script)()
-local function BBGR_fake_script() -- Scripts.MasteryFarm 
-	local script = Instance.new('LocalScript', Scripts)
-
-	local localPlayer = game:GetService("Players").LocalPlayer
-	local npc = workspace:WaitForChild("Characters")
-	local Remote = game:GetService("ReplicatedStorage"):WaitForChild("ALLREMBINDS"):WaitForChild("MainRemoteEvent")
-	local fruits = localPlayer.PlayerStats.Tools
-	local chest = workspace.World.Chests
-	
+	-- Loop teleportation logic
 	while true do
-		for _, v in ipairs(fruits:GetChildren()) do
-			Remote:FireServer("EMMFOSS__!ZCNSJNXCSDWQSANBX", "GiveMasteryEXPTO__Smthh", {localPlayer, v.Name, 99999999, true})
-		end
-		wait(10) -- Add a slight delay to prevent excessive strain on the server
-	end
-end
-coroutine.wrap(BBGR_fake_script)()
-local function BZILI_fake_script() -- Scripts.Music 
-	local script = Instance.new('LocalScript', Scripts)
-
-	-- Reference to the TextButton and Sound
-	local button = script.Parent.Parent.ToggleMusic -- Adjust path if needed
-	local sound = nil
+		for _, npcName in ipairs(npcNames) do
+			local npc = game.Workspace.Characters:FindFirstChild(npcName)
+			local npcPosition = getNPCPosition(npc)
 	
-	-- Function to create and play the sound if it doesn't exist
-	local function createSound()
-		sound = Instance.new("Sound")
-		sound.SoundId = "rbxassetid://1848354536"  -- Replace with the actual sound asset ID
-		sound.Parent = workspace
-		sound.Looped = true
-		sound.Volume = 2
-	end
-	
-	-- Function to toggle the sound
-	local function toggleSound()
-		if sound == nil then
-			createSound()  -- Create the sound if it doesn't exist
-			sound:Play()
-			button.Text = "Toggle Music"
-		elseif sound.IsPlaying then
-			sound:Stop()
-			button.Text = "Toggle Music"
-		else
-			sound:Play()
-			button.Text = "Toggle Music"
+			if npcPosition then
+				-- Teleport player 40 studs above NPC
+				humanoidRootPart.CFrame = CFrame.new(npcPosition + Vector3.new(0, teleportHeight, 0))
+			end
+			wait(0.5) -- Adjust delay between teleports
 		end
 	end
 	
-	-- Check if sound already exists before creating
-	if sound == nil then
-		createSound()
-		sound:Stop()  -- Start in "OFF" state
-		button.Text = "Toggle Music"
+end
+coroutine.wrap(TSTM_fake_script)()
+local function ENSIFB_fake_script() -- Frame.damage 
+	local script = Instance.new('LocalScript', Frame)
+
+	-- Services and Variables
+	local Players = game:GetService("Players")
+	local ReplicatedStorage = game:GetService("ReplicatedStorage")
+	local workspace = game:GetService("Workspace")
+	
+	local localPlayer = Players.LocalPlayer -- Reference to the local player
+	local npc = workspace:WaitForChild("Characters") -- NPC container
+	local Remote = ReplicatedStorage:WaitForChild("ALLREMBINDS"):WaitForChild("MainRemoteEvent") -- Remote event reference
+	local fruits = localPlayer:WaitForChild("PlayerStats"):WaitForChild("Tools") -- Tools/Fruits reference
+	local chest = workspace:WaitForChild("World"):WaitForChild("Chests") -- Chests container
+	
+	-- Debugging
+	print("Local player:", localPlayer.Name)
+	print("NPCs container:", npc.Name)
+	print("Remote event:", Remote.Name)
+	print("Fruits/Tools folder:", fruits.Name)
+	print("Chests container:", chest.Name)
+	
+	-- Example Functionality
+	while true do
+		-- Example: Interact with NPCs
+		for _, character in pairs(npc:GetChildren()) do
+			if character:IsA("Model") and character:FindFirstChild("Humanoid") and character.Name ~= localPlayer.Name then
+				-- Send data to the server via the remote event
+				Remote:FireServer("EMMFOSS__!ZCNSJNXCSDWQSANBX", "Main_DamgeR___", {
+					Target = character,
+					DamageInfo = {
+						Using = "Combat",
+						Damage = 9999,
+						FromPlayer = localPlayer
+					}
+				})
+			end
+		end
+	
+		-- Example: Process tools/fruits
+		for _, tool in pairs(fruits:GetChildren()) do
+			print("Tool/Fruit:", tool.Name)
+			-- Add your logic for tools or fruits here
+		end
+	
+		-- Example: Interact with chests
+		for _, chestInstance in pairs(chest:GetChildren()) do
+			print("Chest:", chestInstance.Name)
+			-- Add your logic for chests here
+		end
+	
+		wait(10) -- Adjust delay as needed
 	end
 	
-	-- Connect the toggle function to the button click event
-	button.MouseButton1Click:Connect(toggleSound)
-	
 end
-coroutine.wrap(BZILI_fake_script)()
-local function VOQFLZ_fake_script() -- Scripts.DestroySounds 
-	local script = Instance.new('LocalScript', Scripts)
+coroutine.wrap(ENSIFB_fake_script)()
+local function MFVY_fake_script() -- Frame.credit 
+	local script = Instance.new('LocalScript', Frame)
 
-	local soundsFolder = game.ReplicatedStorage:FindFirstChild("Sounds")
-	if soundsFolder then
-		soundsFolder:Destroy()
+	wait(3) -- Wait for 3 seconds
+	local frame = script.Parent:FindFirstAncestorOfClass("ScreenGui") or script.Parent.Parent:FindFirstChild("Frame")
+	local textLabel = script.Parent:FindFirstChild("TextLabel")
+	
+	-- Ensure both elements exist before attempting to access them
+	if frame then
+		frame.Visible = false
 	else
-		warn("Sounds folder not found in ReplicatedStorage")
+		warn("Frame not found!")
+	end
+	
+	if textLabel then
+		textLabel.Visible = false
+	else
+		warn("TextLabel not found!")
 	end
 	
 end
-coroutine.wrap(VOQFLZ_fake_script)()
+coroutine.wrap(MFVY_fake_script)()
