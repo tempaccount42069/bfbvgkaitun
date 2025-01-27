@@ -1,4 +1,4 @@
-local UILibrary = loadstring(game:HttpGet('https://raw.githubusercontent.com/ExecutionerScripts/Ui-Library/main/MainScript.lua'))()
+local UILibrary = loadstring(game:HttpGet('https://pastebin.com/raw/j9sSVhdF'))()
 local MainUI = UILibrary:Load("ExecutionerX")
 local AutoFarm = MainUI:CreatePage("Farming",true,true)
 local Teleport = MainUI:CreatePage("Teleport",true,false)
@@ -11,11 +11,10 @@ local chest = workspace.World.Chests
 local Count = 0
 local Player = game:GetService("Players").LocalPlayer
 
-AutoFarm:CreateToggle("Auto Collect Chests", function(v)
+AutoFarm:CreateToggle("Auto Farm Levels", function(v)
     getgenv().CollectChests = v
 end)
 
--- Chest collection function
 spawn(function()
     while true do
         if getgenv().CollectChests then
@@ -26,6 +25,6 @@ spawn(function()
                 end
             end
         end
-        wait(1)  -- Adjust the wait time as needed
+        wait(0.1)
     end
 end)
