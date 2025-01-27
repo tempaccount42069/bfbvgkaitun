@@ -1,33 +1,31 @@
+local UILibrary = loadstring(game:HttpGet('https://raw.githubusercontent.com/ExecutionerScripts/Ui-Library/main/MainScript.lua'))()
+local MainUI = UILibrary:Load("ExecutionerX")
+local AutoFarm = MainUI:CreatePage("Farming",true,true)
+local Teleport = MainUI:CreatePage("Teleport",true,false)
 local localPlayer = game:GetService("Players").LocalPlayer
 local npc = workspace:WaitForChild("Characters")
 local Remote = game:GetService("ReplicatedStorage"):WaitForChild("ALLREMBINDS"):WaitForChild("MainRemoteEvent")
-local Library = loadstring(Game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard"))()
+local fruits = localPlayer.PlayerStats.Tools
+local chest = workspace.World.Chests
 
-local PhantomForcesWindow = Library:NewWindow("KitKat Hub")
-local KillingCheats = PhantomForcesWindow:NewSection("BFBVG")
+local Count = 0
+local Player = game:GetService("Players").LocalPlayer
 
-local autoAttackEnabled = false
+AutoFarm:CreateToggle("Auto Collect Chests", function(v)
+    getgenv().CollectChests = v
+end)
 
--- Function to handle the auto attack
-local function autoAttack()
-    while autoAttackEnabled do
-        for _, character in pairs(npc:GetChildren()) do
-            if character:IsA("Model") and character:FindFirstChild("Humanoid") and character.Name ~= localPlayer.Name then
-                Remote:FireServer(
-                    "EMMFOSS__!ZCNSJNXCSDWQSANBX", 
-                    "Main_DamgeR___", 
-                    {character, {Using = "Combat", Damge = math.huge, FromPlayer = localPlayer}}
-                )
+-- Chest collection function
+spawn(function()
+    while true do
+        if getgenv().CollectChests then
+            for _, v in ipairs(chest:GetChildren()) do
+                if v:IsA("Part") then
+                    firetouchinterest(localPlayer.Character.HumanoidRootPart, v, 0)
+                    firetouchinterest(localPlayer.Character.HumanoidRootPart, v, 1)
+                end
             end
         end
-        task.wait(0.5) -- Prevents overloading the server with requests
-    end
-end
-
--- UI Toggle for Auto Attack
-KillingCheats:CreateToggle("Kill Aura (Players/NPCS)", function(value)
-    autoAttackEnabled = value
-    if autoAttackEnabled then
-        task.spawn(autoAttack) -- Starts auto attack in a separate thread
+        wait(1)  -- Adjust the wait time as needed
     end
 end)
