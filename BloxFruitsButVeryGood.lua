@@ -1,52 +1,54 @@
-local UILibrary = loadstring(game:HttpGet('https://pastebin.com/raw/j9sSVhdF'))()
-local MainUI = UILibrary:Load("KitKat Hub | BFBVG")
-local AutoFarm = MainUI:CreatePage("Farming",true,true)
-local Teleport = MainUI:CreatePage("Teleport",true,false)
-local localPlayer = game:GetService("Players").LocalPlayer
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/tempaccount42069/CokkaHubOpenSource/refs/heads/main/ui.lua"))()
 local npc = workspace:WaitForChild("Characters")
 local Remote = game:GetService("ReplicatedStorage"):WaitForChild("ALLREMBINDS"):WaitForChild("MainRemoteEvent")
 local fruits = localPlayer.PlayerStats.Tools
 local chest = workspace.World.Chests
 
--- Ensure this is a LocalScript placed in the PlayerScripts or StarterPlayerScripts
-local player = game.Players.LocalPlayer
+local Gui = Library:AddGui({
+Title = {"KitKat Hub", "BF Fanmade"},
+ThemeColor = Color3.fromRGB(0, 255, 0),
+ToggleKey = Enum.KeyCode.RightShift,
+})
 
--- Wait for the GUI hierarchy to load
-local guiButton = player:WaitForChild("PlayerGui")
-    :WaitForChild("Main")
-    :WaitForChild("ChooseTeam")
-    :WaitForChild("Container")
-    :WaitForChild("Pirates")
+local Tab = Gui:AddTab("Tab")
 
--- Function to simulate clicks
-local function simulateClick()
-    guiButton.MouseButton1Click:Fire()
-end
+local Category = Tab:AddCategory("Category")
 
--- Loop to repeatedly simulate clicks
-while true do
-    simulateClick() -- Simulate a click
-    task.wait(0.5) -- Wait for 1 second (adjust the delay as needed)
-end
-
-
-local Count = 0
-local Player = game:GetService("Players").LocalPlayer
-
-AutoFarm:CreateToggle("Auto Farm Levels", function(v)
-    getgenv().CollectChests = v
+local Button = Category:AddButton("Button", function()
+print("Button Pressed")
 end)
 
-spawn(function()
-    while true do
-        if getgenv().CollectChests then
-            for _, v in ipairs(chest:GetChildren()) do
-                if v:IsA("Part") then
-                    firetouchinterest(localPlayer.Character.HumanoidRootPart, v, 0)
-                    firetouchinterest(localPlayer.Character.HumanoidRootPart, v, 1)
-                end
-            end
-        end
-        wait(0.1)
-    end
+local Toggle = Category:AddToggle("Toggle", false, function(toggle)
+print(toggle)
+end)
+
+local Box = Category:AddBox("Box", function(str)
+print(str)
+end)
+
+local Label = Category:AddLabel("Label")
+
+local DualLabel = Category:AddDualLabel({"Label1", "Label2"})
+
+local Slider = Category:AddSlider("Slider", 1, 100, 50, function(val)
+print("Slider Value:", val)
+end)
+
+local Dropdown = Category:AddDropdown("Dropdown", {
+"Item 1",
+"Item 2",
+"Item 3",
+"Item 4",
+"Item 5",
+"Item 6",
+"Item 7",
+"Item 8",
+"Item 9",
+"Item 10",
+}, function(name)
+print(name)
+end)
+
+local Bind = Category:AddBind("Bind", Enum.KeyCode.RightShift, function()
+print("Bind Pressed")
 end)
