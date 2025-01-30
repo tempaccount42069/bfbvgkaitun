@@ -1,54 +1,75 @@
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/tempaccount42069/CokkaHubOpenSource/refs/heads/main/ui.lua"))()
-local npc = workspace:WaitForChild("Characters")
-local Remote = game:GetService("ReplicatedStorage"):WaitForChild("ALLREMBINDS"):WaitForChild("MainRemoteEvent")
-local fruits = localPlayer.PlayerStats.Tools
-local chest = workspace.World.Chests
+local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
 
-local Gui = Library:AddGui({
-Title = {"KitKat Hub", "BF Fanmade"},
-ThemeColor = Color3.fromRGB(0, 255, 0),
-ToggleKey = Enum.KeyCode.RightShift,
-})
+local win = DiscordLib:Window("KitKat Hub | Blox Fruits But Very Good")
 
-local Tab = Gui:AddTab("Tab")
+local serv = win:Server("Preview", "")
 
-local Category = Tab:AddCategory("Category")
+local btns = serv:Channel("Buttons")
 
-local Button = Category:AddButton("Button", function()
-print("Button Pressed")
+btns:Button("Kill all", function()
+DiscordLib:Notification("Notification", "Killed everyone!", "Okay!")
 end)
 
-local Toggle = Category:AddToggle("Toggle", false, function(toggle)
-print(toggle)
+btns:Seperator()
+
+btns:Button("Get max level", function()
+DiscordLib:Notification("Notification", "Max level!", "Okay!")
 end)
 
-local Box = Category:AddBox("Box", function(str)
-print(str)
+local tgls = serv:Channel("Toggles")
+
+tgls:Toggle("Auto-Farm",false, function(bool)
+print(bool)
 end)
 
-local Label = Category:AddLabel("Label")
+local sldrs = serv:Channel("Sliders")
 
-local DualLabel = Category:AddDualLabel({"Label1", "Label2"})
-
-local Slider = Category:AddSlider("Slider", 1, 100, 50, function(val)
-print("Slider Value:", val)
+local sldr = sldrs:Slider("Slide me!", 0, 1000, 400, function(t)
+print(t)
 end)
 
-local Dropdown = Category:AddDropdown("Dropdown", {
-"Item 1",
-"Item 2",
-"Item 3",
-"Item 4",
-"Item 5",
-"Item 6",
-"Item 7",
-"Item 8",
-"Item 9",
-"Item 10",
-}, function(name)
-print(name)
+sldrs:Button("Change to 50", function()
+sldr:Change(50)
 end)
 
-local Bind = Category:AddBind("Bind", Enum.KeyCode.RightShift, function()
-print("Bind Pressed")
+local drops = serv:Channel("Dropdowns")
+
+
+local drop = drops:Dropdown("Pick me!",{"Option 1","Option 2","Option 3","Option 4","Option 5"}, function(bool)
+print(bool)
 end)
+
+drops:Button("Clear", function()
+drop:Clear()
+end)
+
+drops:Button("Add option", function()
+drop:Add("Option")
+end)
+
+local clrs = serv:Channel("Colorpickers")
+
+clrs:Colorpicker("ESP Color", Color3.fromRGB(255,1,1), function(t)
+print(t)
+end)
+
+local textbs = serv:Channel("Textboxes")
+
+textbs:Textbox("Gun power", "Type here!", true, function(t)
+print(t)
+end)
+
+local lbls = serv:Channel("Labels")
+
+lbls:Label("This is just a label.")
+
+local bnds = serv:Channel("Binds")
+
+bnds:Bind("Kill bind", Enum.KeyCode.RightShift, function()
+print("Killed everyone!")
+end)
+
+serv:Channel("by dawid#7205")
+
+
+win:Server("Main", "http://www.roblox.com/asset/?id=6031075938")
