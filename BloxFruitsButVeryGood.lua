@@ -1,75 +1,67 @@
-local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
+local localPlayer = game:GetService("Players").LocalPlayer
+local npc = workspace:WaitForChild("Characters")
+local Remote = game:GetService("ReplicatedStorage"):WaitForChild("ALLREMBINDS"):WaitForChild("MainRemoteEvent")
+local fruits = localPlayer.PlayerStats.Tools
+local chest = workspace.World.Chests
 
-local win = DiscordLib:Window("KitKat Hub | Blox Fruits But Very Good")
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard"))()
 
-local serv = win:Server("Preview", "")
+local Window = Library:NewWindow("KitKat Hub")
 
-local btns = serv:Channel("Buttons")
+local Section = Window:NewSection("Farm")
 
-btns:Button("Kill all", function()
-DiscordLib:Notification("Notification", "Killed everyone!", "Okay!")
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Pixeluted/adoniscries/refs/heads/main/Source.lua",true))()
+
+Section:CreateButton("Collect All Chests", function()
+    for _, v in ipairs(chest:GetChildren()) do
+        firetouchinterest(localPlayer.Character.HumanoidRootPart, v, 0)
+        firetouchinterest(localPlayer.Character.HumanoidRootPart, v, 1)
+    end
 end)
 
-btns:Seperator()
+Section:CreateButton("Kill All Players/NPCs", function()
+    for _, character in pairs(npc:GetChildren()) do
+                if character:IsA("Model") and character:FindFirstChild("Humanoid") and character.Name ~= localPlayer.Name then
+                    Remote:FireServer("EMMFOSS__!ZCNSJNXCSDWQSANBX","Main_DamgeR___",{character, {Using = "Combat", Damge = 9999, FromPlayer = localPlayer}})
+                end
+            end
+        end)
 
-btns:Button("Get max level", function()
-DiscordLib:Notification("Notification", "Max level!", "Okay!")
+Section:CreateButton("Fling Everything", function()
+    for _, character in pairs(npc:GetChildren()) do
+        if character:IsA("Model") and character:FindFirstChild("Humanoid") and character.Name ~= localPlayer.Name then
+            Remote:FireServer("EMMFOSS__!ZCNSJNXCSDWQSANBX", "ASeemblyLinearVEllChangerr", {character:FindFirstChild("HumanoidRootPart"), Vector3.new(0, 1000, 0)})
+        end
+    end
 end)
 
-local tgls = serv:Channel("Toggles")
+local Section = Window:NewSection("Fruits")
 
-tgls:Toggle("Auto-Farm",false, function(bool)
-print(bool)
+Section:CreateDropdown("Select Fruit", {"Dragon (West) Fruit", "Dragon (East) Fruit", "Flame Fruit", "Kitsune Fruit", "Leopard Fruit", "Dough Fruit", "Magma Fruit", "Venom Fruit", "Light Fruit", "Ice Fruit", "Hito Fruit", "Control Fruit"}, 1, function(text)
+    local args = {
+        [1] = "EMMFOSS__!ZCNSJNXCSDWQSANBX",
+        [2] = "AddToolToBackpackKKK",
+        [3] = {
+            [1] = text,
+            [2] = localPlayer.Backpack,
+            [3] = true,
+            [4] = true
+        }
+    }
+
+    Remote:FireServer(unpack(args))
 end)
 
-local sldrs = serv:Channel("Sliders")
+local Section = Window:NewSection("Mastery")
 
-local sldr = sldrs:Slider("Slide me!", 0, 1000, 400, function(t)
-print(t)
+Section:CreateButton("Give Mastery (All Items)", function()
+    for _, v in ipairs(fruits:GetChildren()) do
+        Remote:FireServer("EMMFOSS__!ZCNSJNXCSDWQSANBX", "GiveMasteryEXPTO__Smthh", {localPlayer, v.Name, 99999999, true})
+    end
 end)
 
-sldrs:Button("Change to 50", function()
-sldr:Change(50)
+local Section = Window:NewSection("Misc")
+
+Section:CreateButton("Load Kaitun", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/tempaccount42069/bfbvgkaitun/refs/heads/main/BloxFruitsButVeryGoodKaitun.lua"))();
 end)
-
-local drops = serv:Channel("Dropdowns")
-
-
-local drop = drops:Dropdown("Pick me!",{"Option 1","Option 2","Option 3","Option 4","Option 5"}, function(bool)
-print(bool)
-end)
-
-drops:Button("Clear", function()
-drop:Clear()
-end)
-
-drops:Button("Add option", function()
-drop:Add("Option")
-end)
-
-local clrs = serv:Channel("Colorpickers")
-
-clrs:Colorpicker("ESP Color", Color3.fromRGB(255,1,1), function(t)
-print(t)
-end)
-
-local textbs = serv:Channel("Textboxes")
-
-textbs:Textbox("Gun power", "Type here!", true, function(t)
-print(t)
-end)
-
-local lbls = serv:Channel("Labels")
-
-lbls:Label("This is just a label.")
-
-local bnds = serv:Channel("Binds")
-
-bnds:Bind("Kill bind", Enum.KeyCode.RightShift, function()
-print("Killed everyone!")
-end)
-
-serv:Channel("by dawid#7205")
-
-
-win:Server("Main", "http://www.roblox.com/asset/?id=6031075938")
